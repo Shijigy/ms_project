@@ -1,0 +1,11 @@
+syntax = "proto3";
+package project.service.v1;
+option go_package = "project-project/pkg/service/login.service.v1";
+
+message IndexMessage{}
+
+message IndexResponse{}
+
+service ProjectService {
+  rpc Index(IndexMessage) returns (IndexResponse) {}
+}
