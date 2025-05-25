@@ -8,9 +8,9 @@ import (
 	"net"
 	"test.com/project-common/discovery"
 	"test.com/project-common/logs"
-	"test.com/project-grpc/user/login"
+	"test.com/project-grpc/project"
 	"test.com/project-project/config"
-	loginServiceV1 "test.com/project-user/pkg/service/login.service.v1"
+	project_service_v1 "test.com/project-project/pkg/service/project.service.v1"
 )
 
 // Router 接口
@@ -52,7 +52,7 @@ func RegisterGrpc() *grpc.Server {
 	c := gRPCConfig{
 		Addr: config.C.GC.Addr,
 		RegisterFunc: func(g *grpc.Server) {
-			login.RegisterLoginServiceServer(g, loginServiceV1.New())
+			project.RegisterProjectServiceServer(g, project_service_v1.New())
 		}}
 	s := grpc.NewServer()
 	c.RegisterFunc(s)
