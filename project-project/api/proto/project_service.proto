@@ -24,8 +24,12 @@ message MenuMessage {
   repeated MenuMessage children = 15;
 }
 
+message IndexResponse{
+  repeated MenuMessage menus = 1;
+}
+
 message ProjectMessage {
-  int64  Id = 1;
+  int64 Id = 1;
   string  Cover = 2;
   string  Name = 3;
   string  Description = 4;
@@ -49,12 +53,26 @@ message ProjectMessage {
   int64  BeginTime = 22;
   int64  EndTime = 23;
   int32  AutoUpdateSchedule = 24;
+  int64 ProjectCode = 25;
+  int64 MemberCode = 26;
+  int64 JoinTime  = 27;
+  int64 IsOwner = 28;
+  string Authorize = 29;
+  string Code = 30;
 }
 
-message IndexResponse{
-  repeated MenuMessage menus = 1;
+message ProjectRpcMessage{
+  int64 memberId = 1;
+  int64 page = 2;
+  int64 pageSize = 3;
+}
+
+message MyProjectResponse{
+  repeated ProjectMessage pm = 1;
+  int64 total = 2;
 }
 
 service ProjectService {
   rpc Index(IndexMessage) returns (IndexResponse) {}
+  rpc FindProjectByMemId(ProjectRpcMessage) returns (MyProjectResponse){}
 }
