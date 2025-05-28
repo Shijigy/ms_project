@@ -5,11 +5,11 @@ CREATE TABLE `ms_project`  (
                                `description` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '描述',
                                `access_control_type` tinyint(0) NULL DEFAULT 0 COMMENT '访问控制l类型',
                                `white_list` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '可以访问项目的权限组（白名单）',
-                               `order` int(0) UNSIGNED NULL DEFAULT 0 COMMENT '排序',
+                               `sort` int(0) UNSIGNED NULL DEFAULT 0 COMMENT '排序',
                                `deleted` tinyint(1) NULL DEFAULT 0 COMMENT '删除标记',
                                `template_code` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '项目类型',
                                `schedule` double(5, 2) NULL DEFAULT 0.00 COMMENT '进度',
-                               `create_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
+                               `create_time` varchar(30) CHARACTER  SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
                                `organization_code` bigint(0) NULL DEFAULT NULL COMMENT '组织id',
                                `deleted_time` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '删除时间',
                                `private` tinyint(1) NULL DEFAULT 1 COMMENT '是否私有',
@@ -24,5 +24,5 @@ CREATE TABLE `ms_project`  (
                                `end_time` bigint(0) NULL DEFAULT NULL COMMENT '项目截止日期',
                                `auto_update_schedule` tinyint(1) NULL DEFAULT 0 COMMENT '自动更新项目进度',
                                PRIMARY KEY (`id`) USING BTREE,
-                               INDEX `project`(`order`) USING BTREE
+                               INDEX `project`(`sort`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 13043 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '项目表' ROW_FORMAT = COMPACT;
