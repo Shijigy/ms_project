@@ -44,6 +44,19 @@ func (*ProjectMember) TableName() string {
 	return "ms_project_member"
 }
 
+type ProjectCollection struct {
+	Id          int64
+	ProjectCode int64
+	MemberCode  int64
+	JoinTime    int64
+	IsOwner     int64
+	Authorize   string
+}
+
+func (*ProjectCollection) TableName() string {
+	return "ms_project_collection"
+}
+
 type ProjectAndMember struct {
 	Project
 	ProjectCode int64

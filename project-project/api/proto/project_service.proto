@@ -70,6 +70,7 @@ message ProjectRpcMessage{
   string memberName = 2;
   int64 page = 3;
   int64 pageSize = 4;
+  string SelectBy = 5;
 }
 
 message MyProjectResponse{
