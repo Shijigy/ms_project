@@ -581,20 +581,382 @@ func (x *ProjectMessage) GetCollected() int32 {
 	return 0
 }
 
+type ProjectDetailMessage struct {
+	state              protoimpl.MessageState `protogen:"open.v1"`
+	Cover              string                 `protobuf:"bytes,2,opt,name=Cover,proto3" json:"Cover,omitempty"`
+	Name               string                 `protobuf:"bytes,3,opt,name=Name,proto3" json:"Name,omitempty"`
+	Description        string                 `protobuf:"bytes,4,opt,name=Description,proto3" json:"Description,omitempty"`
+	AccessControlType  string                 `protobuf:"bytes,5,opt,name=AccessControlType,proto3" json:"AccessControlType,omitempty"`
+	WhiteList          string                 `protobuf:"bytes,6,opt,name=WhiteList,proto3" json:"WhiteList,omitempty"`
+	Order              int32                  `protobuf:"varint,7,opt,name=Order,proto3" json:"Order,omitempty"`
+	Deleted            int32                  `protobuf:"varint,8,opt,name=Deleted,proto3" json:"Deleted,omitempty"`
+	TemplateCode       string                 `protobuf:"bytes,9,opt,name=TemplateCode,proto3" json:"TemplateCode,omitempty"`
+	Schedule           float64                `protobuf:"fixed64,10,opt,name=Schedule,proto3" json:"Schedule,omitempty"`
+	CreateTime         string                 `protobuf:"bytes,11,opt,name=CreateTime,proto3" json:"CreateTime,omitempty"`
+	OrganizationCode   string                 `protobuf:"bytes,12,opt,name=OrganizationCode,proto3" json:"OrganizationCode,omitempty"`
+	DeletedTime        string                 `protobuf:"bytes,13,opt,name=DeletedTime,proto3" json:"DeletedTime,omitempty"`
+	Private            int32                  `protobuf:"varint,14,opt,name=Private,proto3" json:"Private,omitempty"`
+	Prefix             string                 `protobuf:"bytes,15,opt,name=Prefix,proto3" json:"Prefix,omitempty"`
+	OpenPrefix         int32                  `protobuf:"varint,16,opt,name=OpenPrefix,proto3" json:"OpenPrefix,omitempty"`
+	Archive            int32                  `protobuf:"varint,17,opt,name=Archive,proto3" json:"Archive,omitempty"`
+	ArchiveTime        int64                  `protobuf:"varint,18,opt,name=ArchiveTime,proto3" json:"ArchiveTime,omitempty"`
+	OpenBeginTime      int32                  `protobuf:"varint,19,opt,name=OpenBeginTime,proto3" json:"OpenBeginTime,omitempty"`
+	OpenTaskPrivate    int32                  `protobuf:"varint,20,opt,name=OpenTaskPrivate,proto3" json:"OpenTaskPrivate,omitempty"`
+	TaskBoardTheme     string                 `protobuf:"bytes,21,opt,name=TaskBoardTheme,proto3" json:"TaskBoardTheme,omitempty"`
+	BeginTime          string                 `protobuf:"bytes,22,opt,name=BeginTime,proto3" json:"BeginTime,omitempty"`
+	EndTime            string                 `protobuf:"bytes,23,opt,name=EndTime,proto3" json:"EndTime,omitempty"`
+	AutoUpdateSchedule int32                  `protobuf:"varint,24,opt,name=AutoUpdateSchedule,proto3" json:"AutoUpdateSchedule,omitempty"`
+	Code               string                 `protobuf:"bytes,25,opt,name=code,proto3" json:"code,omitempty"`
+	OwnerName          string                 `protobuf:"bytes,26,opt,name=ownerName,proto3" json:"ownerName,omitempty"`
+	Collected          int32                  `protobuf:"varint,27,opt,name=collected,proto3" json:"collected,omitempty"`
+	OwnerAvatar        string                 `protobuf:"bytes,28,opt,name=ownerAvatar,proto3" json:"ownerAvatar,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
+}
+
+func (x *ProjectDetailMessage) Reset() {
+	*x = ProjectDetailMessage{}
+	mi := &file_project_service_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProjectDetailMessage) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProjectDetailMessage) ProtoMessage() {}
+
+func (x *ProjectDetailMessage) ProtoReflect() protoreflect.Message {
+	mi := &file_project_service_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProjectDetailMessage.ProtoReflect.Descriptor instead.
+func (*ProjectDetailMessage) Descriptor() ([]byte, []int) {
+	return file_project_service_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *ProjectDetailMessage) GetCover() string {
+	if x != nil {
+		return x.Cover
+	}
+	return ""
+}
+
+func (x *ProjectDetailMessage) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *ProjectDetailMessage) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *ProjectDetailMessage) GetAccessControlType() string {
+	if x != nil {
+		return x.AccessControlType
+	}
+	return ""
+}
+
+func (x *ProjectDetailMessage) GetWhiteList() string {
+	if x != nil {
+		return x.WhiteList
+	}
+	return ""
+}
+
+func (x *ProjectDetailMessage) GetOrder() int32 {
+	if x != nil {
+		return x.Order
+	}
+	return 0
+}
+
+func (x *ProjectDetailMessage) GetDeleted() int32 {
+	if x != nil {
+		return x.Deleted
+	}
+	return 0
+}
+
+func (x *ProjectDetailMessage) GetTemplateCode() string {
+	if x != nil {
+		return x.TemplateCode
+	}
+	return ""
+}
+
+func (x *ProjectDetailMessage) GetSchedule() float64 {
+	if x != nil {
+		return x.Schedule
+	}
+	return 0
+}
+
+func (x *ProjectDetailMessage) GetCreateTime() string {
+	if x != nil {
+		return x.CreateTime
+	}
+	return ""
+}
+
+func (x *ProjectDetailMessage) GetOrganizationCode() string {
+	if x != nil {
+		return x.OrganizationCode
+	}
+	return ""
+}
+
+func (x *ProjectDetailMessage) GetDeletedTime() string {
+	if x != nil {
+		return x.DeletedTime
+	}
+	return ""
+}
+
+func (x *ProjectDetailMessage) GetPrivate() int32 {
+	if x != nil {
+		return x.Private
+	}
+	return 0
+}
+
+func (x *ProjectDetailMessage) GetPrefix() string {
+	if x != nil {
+		return x.Prefix
+	}
+	return ""
+}
+
+func (x *ProjectDetailMessage) GetOpenPrefix() int32 {
+	if x != nil {
+		return x.OpenPrefix
+	}
+	return 0
+}
+
+func (x *ProjectDetailMessage) GetArchive() int32 {
+	if x != nil {
+		return x.Archive
+	}
+	return 0
+}
+
+func (x *ProjectDetailMessage) GetArchiveTime() int64 {
+	if x != nil {
+		return x.ArchiveTime
+	}
+	return 0
+}
+
+func (x *ProjectDetailMessage) GetOpenBeginTime() int32 {
+	if x != nil {
+		return x.OpenBeginTime
+	}
+	return 0
+}
+
+func (x *ProjectDetailMessage) GetOpenTaskPrivate() int32 {
+	if x != nil {
+		return x.OpenTaskPrivate
+	}
+	return 0
+}
+
+func (x *ProjectDetailMessage) GetTaskBoardTheme() string {
+	if x != nil {
+		return x.TaskBoardTheme
+	}
+	return ""
+}
+
+func (x *ProjectDetailMessage) GetBeginTime() string {
+	if x != nil {
+		return x.BeginTime
+	}
+	return ""
+}
+
+func (x *ProjectDetailMessage) GetEndTime() string {
+	if x != nil {
+		return x.EndTime
+	}
+	return ""
+}
+
+func (x *ProjectDetailMessage) GetAutoUpdateSchedule() int32 {
+	if x != nil {
+		return x.AutoUpdateSchedule
+	}
+	return 0
+}
+
+func (x *ProjectDetailMessage) GetCode() string {
+	if x != nil {
+		return x.Code
+	}
+	return ""
+}
+
+func (x *ProjectDetailMessage) GetOwnerName() string {
+	if x != nil {
+		return x.OwnerName
+	}
+	return ""
+}
+
+func (x *ProjectDetailMessage) GetCollected() int32 {
+	if x != nil {
+		return x.Collected
+	}
+	return 0
+}
+
+func (x *ProjectDetailMessage) GetOwnerAvatar() string {
+	if x != nil {
+		return x.OwnerAvatar
+	}
+	return ""
+}
+
+type SaveProjectMessage struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	Id               int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
+	Cover            string                 `protobuf:"bytes,2,opt,name=Cover,proto3" json:"Cover,omitempty"`
+	Name             string                 `protobuf:"bytes,3,opt,name=Name,proto3" json:"Name,omitempty"`
+	Description      string                 `protobuf:"bytes,4,opt,name=Description,proto3" json:"Description,omitempty"`
+	Code             string                 `protobuf:"bytes,5,opt,name=Code,proto3" json:"Code,omitempty"`
+	CreateTime       string                 `protobuf:"bytes,6,opt,name=CreateTime,proto3" json:"CreateTime,omitempty"`
+	TaskBoardTheme   string                 `protobuf:"bytes,7,opt,name=TaskBoardTheme,proto3" json:"TaskBoardTheme,omitempty"`
+	OrganizationCode string                 `protobuf:"bytes,8,opt,name=OrganizationCode,proto3" json:"OrganizationCode,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *SaveProjectMessage) Reset() {
+	*x = SaveProjectMessage{}
+	mi := &file_project_service_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SaveProjectMessage) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SaveProjectMessage) ProtoMessage() {}
+
+func (x *SaveProjectMessage) ProtoReflect() protoreflect.Message {
+	mi := &file_project_service_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SaveProjectMessage.ProtoReflect.Descriptor instead.
+func (*SaveProjectMessage) Descriptor() ([]byte, []int) {
+	return file_project_service_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *SaveProjectMessage) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *SaveProjectMessage) GetCover() string {
+	if x != nil {
+		return x.Cover
+	}
+	return ""
+}
+
+func (x *SaveProjectMessage) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *SaveProjectMessage) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *SaveProjectMessage) GetCode() string {
+	if x != nil {
+		return x.Code
+	}
+	return ""
+}
+
+func (x *SaveProjectMessage) GetCreateTime() string {
+	if x != nil {
+		return x.CreateTime
+	}
+	return ""
+}
+
+func (x *SaveProjectMessage) GetTaskBoardTheme() string {
+	if x != nil {
+		return x.TaskBoardTheme
+	}
+	return ""
+}
+
+func (x *SaveProjectMessage) GetOrganizationCode() string {
+	if x != nil {
+		return x.OrganizationCode
+	}
+	return ""
+}
+
 type ProjectRpcMessage struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	MemberId      int64                  `protobuf:"varint,1,opt,name=memberId,proto3" json:"memberId,omitempty"`
-	MemberName    string                 `protobuf:"bytes,2,opt,name=memberName,proto3" json:"memberName,omitempty"`
-	Page          int64                  `protobuf:"varint,3,opt,name=page,proto3" json:"page,omitempty"`
-	PageSize      int64                  `protobuf:"varint,4,opt,name=pageSize,proto3" json:"pageSize,omitempty"`
-	SelectBy      string                 `protobuf:"bytes,5,opt,name=SelectBy,proto3" json:"SelectBy,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	MemberId         int64                  `protobuf:"varint,1,opt,name=memberId,proto3" json:"memberId,omitempty"`
+	MemberName       string                 `protobuf:"bytes,2,opt,name=memberName,proto3" json:"memberName,omitempty"`
+	Page             int64                  `protobuf:"varint,3,opt,name=page,proto3" json:"page,omitempty"`
+	PageSize         int64                  `protobuf:"varint,4,opt,name=pageSize,proto3" json:"pageSize,omitempty"`
+	SelectBy         string                 `protobuf:"bytes,5,opt,name=selectBy,proto3" json:"selectBy,omitempty"`
+	OrganizationCode string                 `protobuf:"bytes,6,opt,name=organizationCode,proto3" json:"organizationCode,omitempty"`
+	ViewType         int32                  `protobuf:"varint,7,opt,name=viewType,proto3" json:"viewType,omitempty"`
+	Name             string                 `protobuf:"bytes,8,opt,name=name,proto3" json:"name,omitempty"`
+	TemplateCode     string                 `protobuf:"bytes,9,opt,name=templateCode,proto3" json:"templateCode,omitempty"`
+	Description      string                 `protobuf:"bytes,10,opt,name=description,proto3" json:"description,omitempty"`
+	Id               int64                  `protobuf:"varint,11,opt,name=id,proto3" json:"id,omitempty"`
+	ProjectCode      string                 `protobuf:"bytes,12,opt,name=projectCode,proto3" json:"projectCode,omitempty"`
+	Deleted          bool                   `protobuf:"varint,13,opt,name=deleted,proto3" json:"deleted,omitempty"`
+	CollectType      string                 `protobuf:"bytes,14,opt,name=collectType,proto3" json:"collectType,omitempty"`
+	TaskCode         string                 `protobuf:"bytes,15,opt,name=taskCode,proto3" json:"taskCode,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *ProjectRpcMessage) Reset() {
 	*x = ProjectRpcMessage{}
-	mi := &file_project_service_proto_msgTypes[4]
+	mi := &file_project_service_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -606,7 +968,7 @@ func (x *ProjectRpcMessage) String() string {
 func (*ProjectRpcMessage) ProtoMessage() {}
 
 func (x *ProjectRpcMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_project_service_proto_msgTypes[4]
+	mi := &file_project_service_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -619,7 +981,7 @@ func (x *ProjectRpcMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProjectRpcMessage.ProtoReflect.Descriptor instead.
 func (*ProjectRpcMessage) Descriptor() ([]byte, []int) {
-	return file_project_service_proto_rawDescGZIP(), []int{4}
+	return file_project_service_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *ProjectRpcMessage) GetMemberId() int64 {
@@ -657,6 +1019,296 @@ func (x *ProjectRpcMessage) GetSelectBy() string {
 	return ""
 }
 
+func (x *ProjectRpcMessage) GetOrganizationCode() string {
+	if x != nil {
+		return x.OrganizationCode
+	}
+	return ""
+}
+
+func (x *ProjectRpcMessage) GetViewType() int32 {
+	if x != nil {
+		return x.ViewType
+	}
+	return 0
+}
+
+func (x *ProjectRpcMessage) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *ProjectRpcMessage) GetTemplateCode() string {
+	if x != nil {
+		return x.TemplateCode
+	}
+	return ""
+}
+
+func (x *ProjectRpcMessage) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *ProjectRpcMessage) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *ProjectRpcMessage) GetProjectCode() string {
+	if x != nil {
+		return x.ProjectCode
+	}
+	return ""
+}
+
+func (x *ProjectRpcMessage) GetDeleted() bool {
+	if x != nil {
+		return x.Deleted
+	}
+	return false
+}
+
+func (x *ProjectRpcMessage) GetCollectType() string {
+	if x != nil {
+		return x.CollectType
+	}
+	return ""
+}
+
+func (x *ProjectRpcMessage) GetTaskCode() string {
+	if x != nil {
+		return x.TaskCode
+	}
+	return ""
+}
+
+type ProjectTemplateMessage struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	Id               int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name             string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Description      string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
+	Sort             int32                  `protobuf:"varint,4,opt,name=sort,proto3" json:"sort,omitempty"`
+	CreateTime       string                 `protobuf:"bytes,5,opt,name=createTime,proto3" json:"createTime,omitempty"`
+	OrganizationCode string                 `protobuf:"bytes,6,opt,name=organizationCode,proto3" json:"organizationCode,omitempty"`
+	Cover            string                 `protobuf:"bytes,7,opt,name=cover,proto3" json:"cover,omitempty"`
+	MemberCode       string                 `protobuf:"bytes,8,opt,name=memberCode,proto3" json:"memberCode,omitempty"`
+	IsSystem         int32         `protobuf:"varint,9,opt,name=isSystem,proto3" json:"isSystem,omitempty"`
+	TaskStages       []*TaskStages `protobuf:"bytes,10,rep,name=taskStages,proto3" json:"taskStages,omitempty"`
+	Code             string        `protobuf:"bytes,11,opt,name=code,proto3" json:"code,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *ProjectTemplateMessage) Reset() {
+	*x = ProjectTemplateMessage{}
+	mi := &file_project_service_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProjectTemplateMessage) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProjectTemplateMessage) ProtoMessage() {}
+
+func (x *ProjectTemplateMessage) ProtoReflect() protoreflect.Message {
+	mi := &file_project_service_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProjectTemplateMessage.ProtoReflect.Descriptor instead.
+func (*ProjectTemplateMessage) Descriptor() ([]byte, []int) {
+	return file_project_service_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *ProjectTemplateMessage) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *ProjectTemplateMessage) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *ProjectTemplateMessage) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *ProjectTemplateMessage) GetSort() int32 {
+	if x != nil {
+		return x.Sort
+	}
+	return 0
+}
+
+func (x *ProjectTemplateMessage) GetCreateTime() string {
+	if x != nil {
+		return x.CreateTime
+	}
+	return ""
+}
+
+func (x *ProjectTemplateMessage) GetOrganizationCode() string {
+	if x != nil {
+		return x.OrganizationCode
+	}
+	return ""
+}
+
+func (x *ProjectTemplateMessage) GetCover() string {
+	if x != nil {
+		return x.Cover
+	}
+	return ""
+}
+
+func (x *ProjectTemplateMessage) GetMemberCode() string {
+	if x != nil {
+		return x.MemberCode
+	}
+	return ""
+}
+
+func (x *ProjectTemplateMessage) GetIsSystem() int32 {
+	if x != nil {
+		return x.IsSystem
+	}
+	return 0
+}
+
+func (x *ProjectTemplateMessage) GetTaskStages() []*TaskStages {
+	if x != nil {
+		return x.TaskStages
+	}
+	return nil
+}
+
+func (x *ProjectTemplateMessage) GetCode() string {
+	if x != nil {
+		return x.Code
+	}
+	return ""
+}
+
+type TaskStages struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TaskStages) Reset() {
+	*x = TaskStages{}
+	mi := &file_project_service_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TaskStages) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TaskStages) ProtoMessage() {}
+
+func (x *TaskStages) ProtoReflect() protoreflect.Message {
+	mi := &file_project_service_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TaskStages.ProtoReflect.Descriptor instead.
+func (*TaskStages) Descriptor() ([]byte, []int) {
+	return file_project_service_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *TaskStages) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+type ProjectTemplateResponse struct {
+	state         protoimpl.MessageState    `protogen:"open.v1"`
+	Ptm           []*ProjectTemplateMessage `protobuf:"bytes,1,rep,name=ptm,proto3" json:"ptm,omitempty"`
+	Total         int64                     `protobuf:"varint,2,opt,name=Total,proto3" json:"Total,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProjectTemplateResponse) Reset() {
+	*x = ProjectTemplateResponse{}
+	mi := &file_project_service_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProjectTemplateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProjectTemplateResponse) ProtoMessage() {}
+
+func (x *ProjectTemplateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_project_service_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProjectTemplateResponse.ProtoReflect.Descriptor instead.
+func (*ProjectTemplateResponse) Descriptor() ([]byte, []int) {
+	return file_project_service_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *ProjectTemplateResponse) GetPtm() []*ProjectTemplateMessage {
+	if x != nil {
+		return x.Ptm
+	}
+	return nil
+}
+
+func (x *ProjectTemplateResponse) GetTotal() int64 {
+	if x != nil {
+		return x.Total
+	}
+	return 0
+}
+
 type MyProjectResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Pm            []*ProjectMessage      `protobuf:"bytes,1,rep,name=pm,proto3" json:"pm,omitempty"`
@@ -667,7 +1319,7 @@ type MyProjectResponse struct {
 
 func (x *MyProjectResponse) Reset() {
 	*x = MyProjectResponse{}
-	mi := &file_project_service_proto_msgTypes[5]
+	mi := &file_project_service_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -679,7 +1331,7 @@ func (x *MyProjectResponse) String() string {
 func (*MyProjectResponse) ProtoMessage() {}
 
 func (x *MyProjectResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_project_service_proto_msgTypes[5]
+	mi := &file_project_service_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -692,7 +1344,7 @@ func (x *MyProjectResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MyProjectResponse.ProtoReflect.Descriptor instead.
 func (*MyProjectResponse) Descriptor() ([]byte, []int) {
-	return file_project_service_proto_rawDescGZIP(), []int{5}
+	return file_project_service_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *MyProjectResponse) GetPm() []*ProjectMessage {
@@ -707,6 +1359,626 @@ func (x *MyProjectResponse) GetTotal() int64 {
 		return x.Total
 	}
 	return 0
+}
+
+type DeletedProjectResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeletedProjectResponse) Reset() {
+	*x = DeletedProjectResponse{}
+	mi := &file_project_service_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeletedProjectResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeletedProjectResponse) ProtoMessage() {}
+
+func (x *DeletedProjectResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_project_service_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeletedProjectResponse.ProtoReflect.Descriptor instead.
+func (*DeletedProjectResponse) Descriptor() ([]byte, []int) {
+	return file_project_service_proto_rawDescGZIP(), []int{11}
+}
+
+type CollectProjectResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CollectProjectResponse) Reset() {
+	*x = CollectProjectResponse{}
+	mi := &file_project_service_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CollectProjectResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CollectProjectResponse) ProtoMessage() {}
+
+func (x *CollectProjectResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_project_service_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CollectProjectResponse.ProtoReflect.Descriptor instead.
+func (*CollectProjectResponse) Descriptor() ([]byte, []int) {
+	return file_project_service_proto_rawDescGZIP(), []int{12}
+}
+
+type UpdateProjectResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateProjectResponse) Reset() {
+	*x = UpdateProjectResponse{}
+	mi := &file_project_service_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateProjectResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateProjectResponse) ProtoMessage() {}
+
+func (x *UpdateProjectResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_project_service_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateProjectResponse.ProtoReflect.Descriptor instead.
+func (*UpdateProjectResponse) Descriptor() ([]byte, []int) {
+	return file_project_service_proto_rawDescGZIP(), []int{13}
+}
+
+type UpdateProjectMessage struct {
+	state              protoimpl.MessageState `protogen:"open.v1"`
+	ProjectCode        string                 `protobuf:"bytes,1,opt,name=projectCode,proto3" json:"projectCode,omitempty"`
+	Cover              string                 `protobuf:"bytes,2,opt,name=Cover,proto3" json:"Cover,omitempty"`
+	Name               string                 `protobuf:"bytes,3,opt,name=Name,proto3" json:"Name,omitempty"`
+	Description        string                 `protobuf:"bytes,4,opt,name=Description,proto3" json:"Description,omitempty"`
+	Schedule           float64                `protobuf:"fixed64,5,opt,name=Schedule,proto3" json:"Schedule,omitempty"`
+	Private            int32                  `protobuf:"varint,6,opt,name=Private,proto3" json:"Private,omitempty"`
+	Prefix             string                 `protobuf:"bytes,7,opt,name=Prefix,proto3" json:"Prefix,omitempty"`
+	OpenPrefix         int32                  `protobuf:"varint,8,opt,name=OpenPrefix,proto3" json:"OpenPrefix,omitempty"`
+	OpenBeginTime      int32                  `protobuf:"varint,9,opt,name=OpenBeginTime,proto3" json:"OpenBeginTime,omitempty"`
+	OpenTaskPrivate    int32                  `protobuf:"varint,10,opt,name=OpenTaskPrivate,proto3" json:"OpenTaskPrivate,omitempty"`
+	TaskBoardTheme     string                 `protobuf:"bytes,11,opt,name=TaskBoardTheme,proto3" json:"TaskBoardTheme,omitempty"`
+	AutoUpdateSchedule int32                  `protobuf:"varint,12,opt,name=AutoUpdateSchedule,proto3" json:"AutoUpdateSchedule,omitempty"`
+	MemberId           int64                  `protobuf:"varint,13,opt,name=MemberId,proto3" json:"MemberId,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
+}
+
+func (x *UpdateProjectMessage) Reset() {
+	*x = UpdateProjectMessage{}
+	mi := &file_project_service_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateProjectMessage) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateProjectMessage) ProtoMessage() {}
+
+func (x *UpdateProjectMessage) ProtoReflect() protoreflect.Message {
+	mi := &file_project_service_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateProjectMessage.ProtoReflect.Descriptor instead.
+func (*UpdateProjectMessage) Descriptor() ([]byte, []int) {
+	return file_project_service_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *UpdateProjectMessage) GetProjectCode() string {
+	if x != nil {
+		return x.ProjectCode
+	}
+	return ""
+}
+
+func (x *UpdateProjectMessage) GetCover() string {
+	if x != nil {
+		return x.Cover
+	}
+	return ""
+}
+
+func (x *UpdateProjectMessage) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *UpdateProjectMessage) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *UpdateProjectMessage) GetSchedule() float64 {
+	if x != nil {
+		return x.Schedule
+	}
+	return 0
+}
+
+func (x *UpdateProjectMessage) GetPrivate() int32 {
+	if x != nil {
+		return x.Private
+	}
+	return 0
+}
+
+func (x *UpdateProjectMessage) GetPrefix() string {
+	if x != nil {
+		return x.Prefix
+	}
+	return ""
+}
+
+func (x *UpdateProjectMessage) GetOpenPrefix() int32 {
+	if x != nil {
+		return x.OpenPrefix
+	}
+	return 0
+}
+
+func (x *UpdateProjectMessage) GetOpenBeginTime() int32 {
+	if x != nil {
+		return x.OpenBeginTime
+	}
+	return 0
+}
+
+func (x *UpdateProjectMessage) GetOpenTaskPrivate() int32 {
+	if x != nil {
+		return x.OpenTaskPrivate
+	}
+	return 0
+}
+
+func (x *UpdateProjectMessage) GetTaskBoardTheme() string {
+	if x != nil {
+		return x.TaskBoardTheme
+	}
+	return ""
+}
+
+func (x *UpdateProjectMessage) GetAutoUpdateSchedule() int32 {
+	if x != nil {
+		return x.AutoUpdateSchedule
+	}
+	return 0
+}
+
+func (x *UpdateProjectMessage) GetMemberId() int64 {
+	if x != nil {
+		return x.MemberId
+	}
+	return 0
+}
+
+type ProjectLogMessage struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Content       string                 `protobuf:"bytes,1,opt,name=Content,proto3" json:"Content,omitempty"`
+	Remark        string                 `protobuf:"bytes,2,opt,name=Remark,proto3" json:"Remark,omitempty"`
+	CreateTime    string                 `protobuf:"bytes,3,opt,name=CreateTime,proto3" json:"CreateTime,omitempty"`
+	SourceCode    string                 `protobuf:"bytes,4,opt,name=SourceCode,proto3" json:"SourceCode,omitempty"`
+	IsComment     int32                  `protobuf:"varint,5,opt,name=IsComment,proto3" json:"IsComment,omitempty"`
+	ProjectCode   string                 `protobuf:"bytes,6,opt,name=ProjectCode,proto3" json:"ProjectCode,omitempty"`
+	ProjectName   string                 `protobuf:"bytes,7,opt,name=ProjectName,proto3" json:"ProjectName,omitempty"`
+	MemberAvatar  string                 `protobuf:"bytes,8,opt,name=MemberAvatar,proto3" json:"MemberAvatar,omitempty"`
+	MemberName    string                 `protobuf:"bytes,9,opt,name=MemberName,proto3" json:"MemberName,omitempty"`
+	TaskName      string                 `protobuf:"bytes,10,opt,name=TaskName,proto3" json:"TaskName,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProjectLogMessage) Reset() {
+	*x = ProjectLogMessage{}
+	mi := &file_project_service_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProjectLogMessage) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProjectLogMessage) ProtoMessage() {}
+
+func (x *ProjectLogMessage) ProtoReflect() protoreflect.Message {
+	mi := &file_project_service_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProjectLogMessage.ProtoReflect.Descriptor instead.
+func (*ProjectLogMessage) Descriptor() ([]byte, []int) {
+	return file_project_service_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *ProjectLogMessage) GetContent() string {
+	if x != nil {
+		return x.Content
+	}
+	return ""
+}
+
+func (x *ProjectLogMessage) GetRemark() string {
+	if x != nil {
+		return x.Remark
+	}
+	return ""
+}
+
+func (x *ProjectLogMessage) GetCreateTime() string {
+	if x != nil {
+		return x.CreateTime
+	}
+	return ""
+}
+
+func (x *ProjectLogMessage) GetSourceCode() string {
+	if x != nil {
+		return x.SourceCode
+	}
+	return ""
+}
+
+func (x *ProjectLogMessage) GetIsComment() int32 {
+	if x != nil {
+		return x.IsComment
+	}
+	return 0
+}
+
+func (x *ProjectLogMessage) GetProjectCode() string {
+	if x != nil {
+		return x.ProjectCode
+	}
+	return ""
+}
+
+func (x *ProjectLogMessage) GetProjectName() string {
+	if x != nil {
+		return x.ProjectName
+	}
+	return ""
+}
+
+func (x *ProjectLogMessage) GetMemberAvatar() string {
+	if x != nil {
+		return x.MemberAvatar
+	}
+	return ""
+}
+
+func (x *ProjectLogMessage) GetMemberName() string {
+	if x != nil {
+		return x.MemberName
+	}
+	return ""
+}
+
+func (x *ProjectLogMessage) GetTaskName() string {
+	if x != nil {
+		return x.TaskName
+	}
+	return ""
+}
+
+type ProjectLogResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	List          []*ProjectLogMessage   `protobuf:"bytes,1,rep,name=list,proto3" json:"list,omitempty"`
+	Total         int64                  `protobuf:"varint,2,opt,name=total,proto3" json:"total,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProjectLogResponse) Reset() {
+	*x = ProjectLogResponse{}
+	mi := &file_project_service_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProjectLogResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProjectLogResponse) ProtoMessage() {}
+
+func (x *ProjectLogResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_project_service_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProjectLogResponse.ProtoReflect.Descriptor instead.
+func (*ProjectLogResponse) Descriptor() ([]byte, []int) {
+	return file_project_service_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *ProjectLogResponse) GetList() []*ProjectLogMessage {
+	if x != nil {
+		return x.List
+	}
+	return nil
+}
+
+func (x *ProjectLogResponse) GetTotal() int64 {
+	if x != nil {
+		return x.Total
+	}
+	return 0
+}
+
+type ProjectNodeMessage struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Node          string                 `protobuf:"bytes,2,opt,name=node,proto3" json:"node,omitempty"`
+	Title         string                 `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`
+	Pnode         string                 `protobuf:"bytes,4,opt,name=pnode,proto3" json:"pnode,omitempty"`
+	IsLogin       int32                  `protobuf:"varint,5,opt,name=isLogin,proto3" json:"isLogin,omitempty"`
+	IsMenu        int32                  `protobuf:"varint,6,opt,name=isMenu,proto3" json:"isMenu,omitempty"`
+	IsAuth        int32                 `protobuf:"varint,7,opt,name=isAuth,proto3" json:"isAuth,omitempty"`
+	Children      []*ProjectNodeMessage `protobuf:"bytes,8,rep,name=children,proto3" json:"children,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProjectNodeMessage) Reset() {
+	*x = ProjectNodeMessage{}
+	mi := &file_project_service_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProjectNodeMessage) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProjectNodeMessage) ProtoMessage() {}
+
+func (x *ProjectNodeMessage) ProtoReflect() protoreflect.Message {
+	mi := &file_project_service_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProjectNodeMessage.ProtoReflect.Descriptor instead.
+func (*ProjectNodeMessage) Descriptor() ([]byte, []int) {
+	return file_project_service_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *ProjectNodeMessage) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *ProjectNodeMessage) GetNode() string {
+	if x != nil {
+		return x.Node
+	}
+	return ""
+}
+
+func (x *ProjectNodeMessage) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *ProjectNodeMessage) GetPnode() string {
+	if x != nil {
+		return x.Pnode
+	}
+	return ""
+}
+
+func (x *ProjectNodeMessage) GetIsLogin() int32 {
+	if x != nil {
+		return x.IsLogin
+	}
+	return 0
+}
+
+func (x *ProjectNodeMessage) GetIsMenu() int32 {
+	if x != nil {
+		return x.IsMenu
+	}
+	return 0
+}
+
+func (x *ProjectNodeMessage) GetIsAuth() int32 {
+	if x != nil {
+		return x.IsAuth
+	}
+	return 0
+}
+
+func (x *ProjectNodeMessage) GetChildren() []*ProjectNodeMessage {
+	if x != nil {
+		return x.Children
+	}
+	return nil
+}
+
+type ProjectNodeResponseMessage struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Nodes         []*ProjectNodeMessage  `protobuf:"bytes,1,rep,name=nodes,proto3" json:"nodes,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProjectNodeResponseMessage) Reset() {
+	*x = ProjectNodeResponseMessage{}
+	mi := &file_project_service_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProjectNodeResponseMessage) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProjectNodeResponseMessage) ProtoMessage() {}
+
+func (x *ProjectNodeResponseMessage) ProtoReflect() protoreflect.Message {
+	mi := &file_project_service_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProjectNodeResponseMessage.ProtoReflect.Descriptor instead.
+func (*ProjectNodeResponseMessage) Descriptor() ([]byte, []int) {
+	return file_project_service_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *ProjectNodeResponseMessage) GetNodes() []*ProjectNodeMessage {
+	if x != nil {
+		return x.Nodes
+	}
+	return nil
+}
+
+type FindProjectByMemberIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Project       *ProjectMessage        `protobuf:"bytes,1,opt,name=project,proto3" json:"project,omitempty"`
+	IsMember      bool                   `protobuf:"varint,2,opt,name=isMember,proto3" json:"isMember,omitempty"`
+	IsOwner       bool                   `protobuf:"varint,3,opt,name=isOwner,proto3" json:"isOwner,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FindProjectByMemberIdResponse) Reset() {
+	*x = FindProjectByMemberIdResponse{}
+	mi := &file_project_service_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FindProjectByMemberIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FindProjectByMemberIdResponse) ProtoMessage() {}
+
+func (x *FindProjectByMemberIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_project_service_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FindProjectByMemberIdResponse.ProtoReflect.Descriptor instead.
+func (*FindProjectByMemberIdResponse) Descriptor() ([]byte, []int) {
+	return file_project_service_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *FindProjectByMemberIdResponse) GetProject() *ProjectMessage {
+	if x != nil {
+		return x.Project
+	}
+	return nil
+}
+
+func (x *FindProjectByMemberIdResponse) GetIsMember() bool {
+	if x != nil {
+		return x.IsMember
+	}
+	return false
+}
+
+func (x *FindProjectByMemberIdResponse) GetIsOwner() bool {
+	if x != nil {
+		return x.IsOwner
+	}
+	return false
 }
 
 var File_project_service_proto protoreflect.FileDescriptor
@@ -781,7 +2053,51 @@ const file_project_service_proto_rawDesc = "" +
 	"\tAuthorize\x18\x1d \x01(\tR\tAuthorize\x12\x12\n" +
 	"\x04code\x18\x1e \x01(\tR\x04code\x12\x1c\n" +
 	"\townerName\x18\x1f \x01(\tR\townerName\x12\x1c\n" +
-	"\tcollected\x18  \x01(\x05R\tcollected\"\x9b\x01\n" +
+	"\tcollected\x18  \x01(\x05R\tcollected\"\xec\x06\n" +
+	"\x14ProjectDetailMessage\x12\x14\n" +
+	"\x05Cover\x18\x02 \x01(\tR\x05Cover\x12\x12\n" +
+	"\x04Name\x18\x03 \x01(\tR\x04Name\x12 \n" +
+	"\vDescription\x18\x04 \x01(\tR\vDescription\x12,\n" +
+	"\x11AccessControlType\x18\x05 \x01(\tR\x11AccessControlType\x12\x1c\n" +
+	"\tWhiteList\x18\x06 \x01(\tR\tWhiteList\x12\x14\n" +
+	"\x05Order\x18\a \x01(\x05R\x05Order\x12\x18\n" +
+	"\aDeleted\x18\b \x01(\x05R\aDeleted\x12\"\n" +
+	"\fTemplateCode\x18\t \x01(\tR\fTemplateCode\x12\x1a\n" +
+	"\bSchedule\x18\n" +
+	" \x01(\x01R\bSchedule\x12\x1e\n" +
+	"\n" +
+	"CreateTime\x18\v \x01(\tR\n" +
+	"CreateTime\x12*\n" +
+	"\x10OrganizationCode\x18\f \x01(\tR\x10OrganizationCode\x12 \n" +
+	"\vDeletedTime\x18\r \x01(\tR\vDeletedTime\x12\x18\n" +
+	"\aPrivate\x18\x0e \x01(\x05R\aPrivate\x12\x16\n" +
+	"\x06Prefix\x18\x0f \x01(\tR\x06Prefix\x12\x1e\n" +
+	"\n" +
+	"OpenPrefix\x18\x10 \x01(\x05R\n" +
+	"OpenPrefix\x12\x18\n" +
+	"\aArchive\x18\x11 \x01(\x05R\aArchive\x12 \n" +
+	"\vArchiveTime\x18\x12 \x01(\x03R\vArchiveTime\x12$\n" +
+	"\rOpenBeginTime\x18\x13 \x01(\x05R\rOpenBeginTime\x12(\n" +
+	"\x0fOpenTaskPrivate\x18\x14 \x01(\x05R\x0fOpenTaskPrivate\x12&\n" +
+	"\x0eTaskBoardTheme\x18\x15 \x01(\tR\x0eTaskBoardTheme\x12\x1c\n" +
+	"\tBeginTime\x18\x16 \x01(\tR\tBeginTime\x12\x18\n" +
+	"\aEndTime\x18\x17 \x01(\tR\aEndTime\x12.\n" +
+	"\x12AutoUpdateSchedule\x18\x18 \x01(\x05R\x12AutoUpdateSchedule\x12\x12\n" +
+	"\x04code\x18\x19 \x01(\tR\x04code\x12\x1c\n" +
+	"\townerName\x18\x1a \x01(\tR\townerName\x12\x1c\n" +
+	"\tcollected\x18\x1b \x01(\x05R\tcollected\x12 \n" +
+	"\vownerAvatar\x18\x1c \x01(\tR\vownerAvatar\"\xf8\x01\n" +
+	"\x12SaveProjectMessage\x12\x0e\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\x12\x14\n" +
+	"\x05Cover\x18\x02 \x01(\tR\x05Cover\x12\x12\n" +
+	"\x04Name\x18\x03 \x01(\tR\x04Name\x12 \n" +
+	"\vDescription\x18\x04 \x01(\tR\vDescription\x12\x12\n" +
+	"\x04Code\x18\x05 \x01(\tR\x04Code\x12\x1e\n" +
+	"\n" +
+	"CreateTime\x18\x06 \x01(\tR\n" +
+	"CreateTime\x12&\n" +
+	"\x0eTaskBoardTheme\x18\a \x01(\tR\x0eTaskBoardTheme\x12*\n" +
+	"\x10OrganizationCode\x18\b \x01(\tR\x10OrganizationCode\"\xc7\x03\n" +
 	"\x11ProjectRpcMessage\x12\x1a\n" +
 	"\bmemberId\x18\x01 \x01(\x03R\bmemberId\x12\x1e\n" +
 	"\n" +
@@ -789,13 +2105,114 @@ const file_project_service_proto_rawDesc = "" +
 	"memberName\x12\x12\n" +
 	"\x04page\x18\x03 \x01(\x03R\x04page\x12\x1a\n" +
 	"\bpageSize\x18\x04 \x01(\x03R\bpageSize\x12\x1a\n" +
-	"\bSelectBy\x18\x05 \x01(\tR\bSelectBy\"]\n" +
+	"\bselectBy\x18\x05 \x01(\tR\bselectBy\x12*\n" +
+	"\x10organizationCode\x18\x06 \x01(\tR\x10organizationCode\x12\x1a\n" +
+	"\bviewType\x18\a \x01(\x05R\bviewType\x12\x12\n" +
+	"\x04name\x18\b \x01(\tR\x04name\x12\"\n" +
+	"\ftemplateCode\x18\t \x01(\tR\ftemplateCode\x12 \n" +
+	"\vdescription\x18\n" +
+	" \x01(\tR\vdescription\x12\x0e\n" +
+	"\x02id\x18\v \x01(\x03R\x02id\x12 \n" +
+	"\vprojectCode\x18\f \x01(\tR\vprojectCode\x12\x18\n" +
+	"\adeleted\x18\r \x01(\bR\adeleted\x12 \n" +
+	"\vcollectType\x18\x0e \x01(\tR\vcollectType\x12\x1a\n" +
+	"\btaskCode\x18\x0f \x01(\tR\btaskCode\"\xe4\x02\n" +
+	"\x16ProjectTemplateMessage\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
+	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\x12\n" +
+	"\x04sort\x18\x04 \x01(\x05R\x04sort\x12\x1e\n" +
+	"\n" +
+	"createTime\x18\x05 \x01(\tR\n" +
+	"createTime\x12*\n" +
+	"\x10organizationCode\x18\x06 \x01(\tR\x10organizationCode\x12\x14\n" +
+	"\x05cover\x18\a \x01(\tR\x05cover\x12\x1e\n" +
+	"\n" +
+	"memberCode\x18\b \x01(\tR\n" +
+	"memberCode\x12\x1a\n" +
+	"\bisSystem\x18\t \x01(\x05R\bisSystem\x12>\n" +
+	"\n" +
+	"taskStages\x18\n" +
+	" \x03(\v2\x1e.project.service.v1.TaskStagesR\n" +
+	"taskStages\x12\x12\n" +
+	"\x04code\x18\v \x01(\tR\x04code\" \n" +
+	"\n" +
+	"TaskStages\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\"m\n" +
+	"\x17ProjectTemplateResponse\x12<\n" +
+	"\x03ptm\x18\x01 \x03(\v2*.project.service.v1.ProjectTemplateMessageR\x03ptm\x12\x14\n" +
+	"\x05Total\x18\x02 \x01(\x03R\x05Total\"]\n" +
 	"\x11MyProjectResponse\x122\n" +
 	"\x02pm\x18\x01 \x03(\v2\".project.service.v1.ProjectMessageR\x02pm\x12\x14\n" +
-	"\x05total\x18\x02 \x01(\x03R\x05total2\xc6\x01\n" +
+	"\x05total\x18\x02 \x01(\x03R\x05total\"\x18\n" +
+	"\x16DeletedProjectResponse\"\x18\n" +
+	"\x16CollectProjectResponse\"\x17\n" +
+	"\x15UpdateProjectResponse\"\xb6\x03\n" +
+	"\x14UpdateProjectMessage\x12 \n" +
+	"\vprojectCode\x18\x01 \x01(\tR\vprojectCode\x12\x14\n" +
+	"\x05Cover\x18\x02 \x01(\tR\x05Cover\x12\x12\n" +
+	"\x04Name\x18\x03 \x01(\tR\x04Name\x12 \n" +
+	"\vDescription\x18\x04 \x01(\tR\vDescription\x12\x1a\n" +
+	"\bSchedule\x18\x05 \x01(\x01R\bSchedule\x12\x18\n" +
+	"\aPrivate\x18\x06 \x01(\x05R\aPrivate\x12\x16\n" +
+	"\x06Prefix\x18\a \x01(\tR\x06Prefix\x12\x1e\n" +
+	"\n" +
+	"OpenPrefix\x18\b \x01(\x05R\n" +
+	"OpenPrefix\x12$\n" +
+	"\rOpenBeginTime\x18\t \x01(\x05R\rOpenBeginTime\x12(\n" +
+	"\x0fOpenTaskPrivate\x18\n" +
+	" \x01(\x05R\x0fOpenTaskPrivate\x12&\n" +
+	"\x0eTaskBoardTheme\x18\v \x01(\tR\x0eTaskBoardTheme\x12.\n" +
+	"\x12AutoUpdateSchedule\x18\f \x01(\x05R\x12AutoUpdateSchedule\x12\x1a\n" +
+	"\bMemberId\x18\r \x01(\x03R\bMemberId\"\xc7\x02\n" +
+	"\x11ProjectLogMessage\x12\x18\n" +
+	"\aContent\x18\x01 \x01(\tR\aContent\x12\x16\n" +
+	"\x06Remark\x18\x02 \x01(\tR\x06Remark\x12\x1e\n" +
+	"\n" +
+	"CreateTime\x18\x03 \x01(\tR\n" +
+	"CreateTime\x12\x1e\n" +
+	"\n" +
+	"SourceCode\x18\x04 \x01(\tR\n" +
+	"SourceCode\x12\x1c\n" +
+	"\tIsComment\x18\x05 \x01(\x05R\tIsComment\x12 \n" +
+	"\vProjectCode\x18\x06 \x01(\tR\vProjectCode\x12 \n" +
+	"\vProjectName\x18\a \x01(\tR\vProjectName\x12\"\n" +
+	"\fMemberAvatar\x18\b \x01(\tR\fMemberAvatar\x12\x1e\n" +
+	"\n" +
+	"MemberName\x18\t \x01(\tR\n" +
+	"MemberName\x12\x1a\n" +
+	"\bTaskName\x18\n" +
+	" \x01(\tR\bTaskName\"e\n" +
+	"\x12ProjectLogResponse\x129\n" +
+	"\x04list\x18\x01 \x03(\v2%.project.service.v1.ProjectLogMessageR\x04list\x12\x14\n" +
+	"\x05total\x18\x02 \x01(\x03R\x05total\"\xf2\x01\n" +
+	"\x12ProjectNodeMessage\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
+	"\x04node\x18\x02 \x01(\tR\x04node\x12\x14\n" +
+	"\x05title\x18\x03 \x01(\tR\x05title\x12\x14\n" +
+	"\x05pnode\x18\x04 \x01(\tR\x05pnode\x12\x18\n" +
+	"\aisLogin\x18\x05 \x01(\x05R\aisLogin\x12\x16\n" +
+	"\x06isMenu\x18\x06 \x01(\x05R\x06isMenu\x12\x16\n" +
+	"\x06isAuth\x18\a \x01(\x05R\x06isAuth\x12B\n" +
+	"\bchildren\x18\b \x03(\v2&.project.service.v1.ProjectNodeMessageR\bchildren\"Z\n" +
+	"\x1aProjectNodeResponseMessage\x12<\n" +
+	"\x05nodes\x18\x01 \x03(\v2&.project.service.v1.ProjectNodeMessageR\x05nodes\"\x93\x01\n" +
+	"\x1dFindProjectByMemberIdResponse\x12<\n" +
+	"\aproject\x18\x01 \x01(\v2\".project.service.v1.ProjectMessageR\aproject\x12\x1a\n" +
+	"\bisMember\x18\x02 \x01(\bR\bisMember\x12\x18\n" +
+	"\aisOwner\x18\x03 \x01(\bR\aisOwner2\xff\b\n" +
 	"\x0eProjectService\x12N\n" +
 	"\x05Index\x12 .project.service.v1.IndexMessage\x1a!.project.service.v1.IndexResponse\"\x00\x12d\n" +
-	"\x12FindProjectByMemId\x12%.project.service.v1.ProjectRpcMessage\x1a%.project.service.v1.MyProjectResponse\"\x00B.Z,project-project/pkg/service/login.service.v1b\x06proto3"
+	"\x12FindProjectByMemId\x12%.project.service.v1.ProjectRpcMessage\x1a%.project.service.v1.MyProjectResponse\"\x00\x12k\n" +
+	"\x13FindProjectTemplate\x12%.project.service.v1.ProjectRpcMessage\x1a+.project.service.v1.ProjectTemplateResponse\"\x00\x12^\n" +
+	"\vSaveProject\x12%.project.service.v1.ProjectRpcMessage\x1a&.project.service.v1.SaveProjectMessage\"\x00\x12f\n" +
+	"\x11FindProjectDetail\x12%.project.service.v1.ProjectRpcMessage\x1a(.project.service.v1.ProjectDetailMessage\"\x00\x12k\n" +
+	"\x14UpdateDeletedProject\x12%.project.service.v1.ProjectRpcMessage\x1a*.project.service.v1.DeletedProjectResponse\"\x00\x12k\n" +
+	"\x14UpdateCollectProject\x12%.project.service.v1.ProjectRpcMessage\x1a*.project.service.v1.CollectProjectResponse\"\x00\x12f\n" +
+	"\rUpdateProject\x12(.project.service.v1.UpdateProjectMessage\x1a).project.service.v1.UpdateProjectResponse\"\x00\x12f\n" +
+	"\x13GetLogBySelfProject\x12%.project.service.v1.ProjectRpcMessage\x1a&.project.service.v1.ProjectLogResponse\"\x00\x12c\n" +
+	"\bNodeList\x12%.project.service.v1.ProjectRpcMessage\x1a..project.service.v1.ProjectNodeResponseMessage\"\x00\x12s\n" +
+	"\x15FindProjectByMemberId\x12%.project.service.v1.ProjectRpcMessage\x1a1.project.service.v1.FindProjectByMemberIdResponse\"\x00B.Z,project-project/pkg/service/login.service.v1b\x06proto3"
 
 var (
 	file_project_service_proto_rawDescOnce sync.Once
@@ -809,28 +2226,66 @@ func file_project_service_proto_rawDescGZIP() []byte {
 	return file_project_service_proto_rawDescData
 }
 
-var file_project_service_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_project_service_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
 var file_project_service_proto_goTypes = []any{
-	(*IndexMessage)(nil),      // 0: project.service.v1.IndexMessage
-	(*MenuMessage)(nil),       // 1: project.service.v1.MenuMessage
-	(*IndexResponse)(nil),     // 2: project.service.v1.IndexResponse
-	(*ProjectMessage)(nil),    // 3: project.service.v1.ProjectMessage
-	(*ProjectRpcMessage)(nil), // 4: project.service.v1.ProjectRpcMessage
-	(*MyProjectResponse)(nil), // 5: project.service.v1.MyProjectResponse
+	(*IndexMessage)(nil),                  // 0: project.service.v1.IndexMessage
+	(*MenuMessage)(nil),                   // 1: project.service.v1.MenuMessage
+	(*IndexResponse)(nil),                 // 2: project.service.v1.IndexResponse
+	(*ProjectMessage)(nil),                // 3: project.service.v1.ProjectMessage
+	(*ProjectDetailMessage)(nil),          // 4: project.service.v1.ProjectDetailMessage
+	(*SaveProjectMessage)(nil),            // 5: project.service.v1.SaveProjectMessage
+	(*ProjectRpcMessage)(nil),             // 6: project.service.v1.ProjectRpcMessage
+	(*ProjectTemplateMessage)(nil),        // 7: project.service.v1.ProjectTemplateMessage
+	(*TaskStages)(nil),                    // 8: project.service.v1.TaskStages
+	(*ProjectTemplateResponse)(nil),       // 9: project.service.v1.ProjectTemplateResponse
+	(*MyProjectResponse)(nil),             // 10: project.service.v1.MyProjectResponse
+	(*DeletedProjectResponse)(nil),        // 11: project.service.v1.DeletedProjectResponse
+	(*CollectProjectResponse)(nil),        // 12: project.service.v1.CollectProjectResponse
+	(*UpdateProjectResponse)(nil),         // 13: project.service.v1.UpdateProjectResponse
+	(*UpdateProjectMessage)(nil),          // 14: project.service.v1.UpdateProjectMessage
+	(*ProjectLogMessage)(nil),             // 15: project.service.v1.ProjectLogMessage
+	(*ProjectLogResponse)(nil),            // 16: project.service.v1.ProjectLogResponse
+	(*ProjectNodeMessage)(nil),            // 17: project.service.v1.ProjectNodeMessage
+	(*ProjectNodeResponseMessage)(nil),    // 18: project.service.v1.ProjectNodeResponseMessage
+	(*FindProjectByMemberIdResponse)(nil), // 19: project.service.v1.FindProjectByMemberIdResponse
 }
 var file_project_service_proto_depIdxs = []int32{
-	1, // 0: project.service.v1.MenuMessage.children:type_name -> project.service.v1.MenuMessage
-	1, // 1: project.service.v1.IndexResponse.menus:type_name -> project.service.v1.MenuMessage
-	3, // 2: project.service.v1.MyProjectResponse.pm:type_name -> project.service.v1.ProjectMessage
-	0, // 3: project.service.v1.ProjectService.Index:input_type -> project.service.v1.IndexMessage
-	4, // 4: project.service.v1.ProjectService.FindProjectByMemId:input_type -> project.service.v1.ProjectRpcMessage
-	2, // 5: project.service.v1.ProjectService.Index:output_type -> project.service.v1.IndexResponse
-	5, // 6: project.service.v1.ProjectService.FindProjectByMemId:output_type -> project.service.v1.MyProjectResponse
-	5, // [5:7] is the sub-list for method output_type
-	3, // [3:5] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	1,  // 0: project.service.v1.MenuMessage.children:type_name -> project.service.v1.MenuMessage
+	1,  // 1: project.service.v1.IndexResponse.menus:type_name -> project.service.v1.MenuMessage
+	8,  // 2: project.service.v1.ProjectTemplateMessage.taskStages:type_name -> project.service.v1.TaskStages
+	7,  // 3: project.service.v1.ProjectTemplateResponse.ptm:type_name -> project.service.v1.ProjectTemplateMessage
+	3,  // 4: project.service.v1.MyProjectResponse.pm:type_name -> project.service.v1.ProjectMessage
+	15, // 5: project.service.v1.ProjectLogResponse.list:type_name -> project.service.v1.ProjectLogMessage
+	17, // 6: project.service.v1.ProjectNodeMessage.children:type_name -> project.service.v1.ProjectNodeMessage
+	17, // 7: project.service.v1.ProjectNodeResponseMessage.nodes:type_name -> project.service.v1.ProjectNodeMessage
+	3,  // 8: project.service.v1.FindProjectByMemberIdResponse.project:type_name -> project.service.v1.ProjectMessage
+	0,  // 9: project.service.v1.ProjectService.Index:input_type -> project.service.v1.IndexMessage
+	6,  // 10: project.service.v1.ProjectService.FindProjectByMemId:input_type -> project.service.v1.ProjectRpcMessage
+	6,  // 11: project.service.v1.ProjectService.FindProjectTemplate:input_type -> project.service.v1.ProjectRpcMessage
+	6,  // 12: project.service.v1.ProjectService.SaveProject:input_type -> project.service.v1.ProjectRpcMessage
+	6,  // 13: project.service.v1.ProjectService.FindProjectDetail:input_type -> project.service.v1.ProjectRpcMessage
+	6,  // 14: project.service.v1.ProjectService.UpdateDeletedProject:input_type -> project.service.v1.ProjectRpcMessage
+	6,  // 15: project.service.v1.ProjectService.UpdateCollectProject:input_type -> project.service.v1.ProjectRpcMessage
+	14, // 16: project.service.v1.ProjectService.UpdateProject:input_type -> project.service.v1.UpdateProjectMessage
+	6,  // 17: project.service.v1.ProjectService.GetLogBySelfProject:input_type -> project.service.v1.ProjectRpcMessage
+	6,  // 18: project.service.v1.ProjectService.NodeList:input_type -> project.service.v1.ProjectRpcMessage
+	6,  // 19: project.service.v1.ProjectService.FindProjectByMemberId:input_type -> project.service.v1.ProjectRpcMessage
+	2,  // 20: project.service.v1.ProjectService.Index:output_type -> project.service.v1.IndexResponse
+	10, // 21: project.service.v1.ProjectService.FindProjectByMemId:output_type -> project.service.v1.MyProjectResponse
+	9,  // 22: project.service.v1.ProjectService.FindProjectTemplate:output_type -> project.service.v1.ProjectTemplateResponse
+	5,  // 23: project.service.v1.ProjectService.SaveProject:output_type -> project.service.v1.SaveProjectMessage
+	4,  // 24: project.service.v1.ProjectService.FindProjectDetail:output_type -> project.service.v1.ProjectDetailMessage
+	11, // 25: project.service.v1.ProjectService.UpdateDeletedProject:output_type -> project.service.v1.DeletedProjectResponse
+	12, // 26: project.service.v1.ProjectService.UpdateCollectProject:output_type -> project.service.v1.CollectProjectResponse
+	13, // 27: project.service.v1.ProjectService.UpdateProject:output_type -> project.service.v1.UpdateProjectResponse
+	16, // 28: project.service.v1.ProjectService.GetLogBySelfProject:output_type -> project.service.v1.ProjectLogResponse
+	18, // 29: project.service.v1.ProjectService.NodeList:output_type -> project.service.v1.ProjectNodeResponseMessage
+	19, // 30: project.service.v1.ProjectService.FindProjectByMemberId:output_type -> project.service.v1.FindProjectByMemberIdResponse
+	20, // [20:31] is the sub-list for method output_type
+	9,  // [9:20] is the sub-list for method input_type
+	9,  // [9:9] is the sub-list for extension type_name
+	9,  // [9:9] is the sub-list for extension extendee
+	0,  // [0:9] is the sub-list for field type_name
 }
 
 func init() { file_project_service_proto_init() }
@@ -844,7 +2299,7 @@ func file_project_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_project_service_proto_rawDesc), len(file_project_service_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   20,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
