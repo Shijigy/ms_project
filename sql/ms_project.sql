@@ -7,7 +7,7 @@ CREATE TABLE `ms_project`  (
                                `white_list` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '可以访问项目的权限组（白名单）',
                                `sort` int(0) UNSIGNED NULL DEFAULT 0 COMMENT '排序',
                                `deleted` tinyint(1) NULL DEFAULT 0 COMMENT '删除标记',
-                               `template_code` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '项目类型',
+                               `template_code` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '项目类型',
                                `schedule` double(5, 2) NULL DEFAULT 0.00 COMMENT '进度',
                                `create_time` varchar(30) CHARACTER  SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
                                `organization_code` bigint(0) NULL DEFAULT NULL COMMENT '组织id',

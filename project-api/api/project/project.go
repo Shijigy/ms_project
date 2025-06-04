@@ -106,6 +106,33 @@ func (p HandlerProject) projectTemplate(c *gin.Context) {
 	}))
 }
 
+func (p HandlerProject) projectSave(c *gin.Context) {
+	result := &common.Result{}
+	//1. 获取参数
+	ctx, cancelFunc := context.WithTimeout(context.Background(), 2*time.Second)
+	defer cancelFunc()
+	memberId := c.GetInt64("memberId")
+	organizationCode := c.GetString("organizationCode")
+	var req *pro.SaveProjectRequest
+	c.ShouldBind(&req)
+	msg := &project.ProjectRpcMessage{
+		MemberId:         memberId,
+		OrganizationCode: organizationCode,
+		TemplateCode:     req.TemplateCode,
+		Name:             req.Name,
+		Id:               int64(req.Id),
+		Description:      req.Description,
+	}
+	saveProject, err := ProjectServiceClient.SaveProject(ctx, msg)
+	if err != nil {
+		code, msg := errs.ParseGrpcError(err)
+		c.JSON(http.StatusOK, result.Fail(code, msg))
+	}
+	var rsp *pro.SaveProject
+	copier.Copy(&rsp, saveProject)
+	c.JSON(http.StatusOK, result.Success(rsp))
+}
+
 func New() *HandlerProject {
 	return &HandlerProject{}
 }
