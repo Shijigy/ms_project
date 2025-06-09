@@ -206,6 +206,7 @@ message FindProjectByMemberIdResponse{
   bool isMember = 2;
   bool isOwner = 3;
 }
+
 service ProjectService {
   rpc Index(IndexMessage) returns (IndexResponse) {}
   rpc FindProjectByMemId(ProjectRpcMessage) returns (MyProjectResponse){}

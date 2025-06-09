@@ -4,6 +4,8 @@ import (
 	"context"
 	"github.com/jinzhu/copier"
 	"go.uber.org/zap"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 	"strconv"
 	"test.com/project-common/encrypts"
 	"test.com/project-common/errs"
@@ -63,13 +65,13 @@ func (p *ProjectService) FindProjectByMemId(ctx context.Context, msg *project.Pr
 	var total int64
 	var err error
 	if msg.SelectBy == "" || msg.SelectBy == "my" {
-		pms, total, err = p.projectRepo.FindProjectByMemId(ctx, memberId, "", page, pageSize)
+		pms, total, err = p.projectRepo.FindProjectByMemId(ctx, memberId, "and deleted=0 ", page, pageSize)
 	}
 	if msg.SelectBy == "archive" {
-		pms, total, err = p.projectRepo.FindProjectByMemId(ctx, memberId, "archive=1 ", page, pageSize)
+		pms, total, err = p.projectRepo.FindProjectByMemId(ctx, memberId, "and archive=1 ", page, pageSize)
 	}
 	if msg.SelectBy == "deleted" {
-		pms, total, err = p.projectRepo.FindProjectByMemId(ctx, memberId, "deleted=1 ", page, pageSize)
+		pms, total, err = p.projectRepo.FindProjectByMemId(ctx, memberId, "and deleted=1 ", page, pageSize)
 	}
 	if msg.SelectBy == "collect" {
 		pms, total, err = p.projectRepo.FindCollectProjectByMemId(ctx, memberId, page, pageSize)
@@ -195,14 +197,23 @@ func (ps *ProjectService) SaveProject(ctx context.Context, msg *project.ProjectR
 func (ps *ProjectService) FindProjectDetail(ctx context.Context, msg *project.ProjectRpcMessage) (*project.ProjectDetailMessage, error) {
 	projectCodeStr, _ := encrypts.Decrypt(msg.ProjectCode, model.AESKey)
 	projectCode, _ := strconv.ParseInt(projectCodeStr, 10, 64)
+
 	memberId := msg.MemberId
 	c, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 	defer cancel()
 	projectAndMember, err := ps.projectRepo.FindProjectByPIdAndMemId(c, projectCode, memberId)
+
 	if err != nil {
 		zap.L().Error("project FindProjectDetail FindProjectByPIdAndMemId error", zap.Error(err))
 		return nil, errs.GrpcError(model.DBError)
 	}
+	if projectAndMember == nil {
+		zap.L().Warn("project not found for code and member",
+			zap.Int64("projectCode", projectCode),
+			zap.Int64("memberId", memberId))
+		return nil, status.Errorf(codes.NotFound, "project not found")
+	}
+
 	ownerId := projectAndMember.IsOwner
 	member, err := rpc.LoginServiceClient.FindMemInfoById(c, &login.UserMessage{MemId: ownerId})
 	if err != nil {
@@ -229,4 +240,17 @@ func (ps *ProjectService) FindProjectDetail(ctx context.Context, msg *project.Pr
 	detailMsg.Order = int32(projectAndMember.Sort)
 	detailMsg.CreateTime = tms.FormatByMill(projectAndMember.CreateTime)
 	return detailMsg, nil
+}
+
+func (ps *ProjectService) UpdateDeletedProject(ctx context.Context, msg *project.ProjectRpcMessage) (*project.DeletedProjectResponse, error) {
+	projectCodeStr, _ := encrypts.Decrypt(msg.ProjectCode, model.AESKey)
+	projectCode, _ := strconv.ParseInt(projectCodeStr, 10, 64)
+	c, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	defer cancel()
+	err := ps.projectRepo.UpdateDeletedProject(c, projectCode, msg.Deleted)
+	if err != nil {
+		zap.L().Error("project RecycleProject DeleteProject error", zap.Error(err))
+		return nil, errs.GrpcError(model.DBError)
+	}
+	return &project.DeletedProjectResponse{}, nil
 }

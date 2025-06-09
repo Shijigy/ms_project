@@ -13,7 +13,7 @@ type MemberDao struct {
 }
 
 func (m *MemberDao) FindMemberById(ctx context.Context, id int64) (mem *member.Member, err error) {
-	err = m.conn.Session(ctx).Where("id = ?", id).First(&mem).Error
+	err = m.conn.Session(ctx).Where("id=?", id).First(&mem).Error
 	return
 }
 

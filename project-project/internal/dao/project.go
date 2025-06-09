@@ -12,6 +12,17 @@ type ProjectDao struct {
 	conn *gorms.GormConn
 }
 
+func (p *ProjectDao) UpdateDeletedProject(ctx context.Context, code int64, deleted bool) error {
+	session := p.conn.Session(ctx)
+	var err error
+	if deleted {
+		err = session.Model(&pro.Project{}).Where("id=?", code).Update("deleted", 1).Error
+	} else {
+		err = session.Model(&pro.Project{}).Where("id=?", code).Update("deleted", 0).Error
+	}
+	return err
+}
+
 func (p *ProjectDao) FindProjectByPIdAndMemId(ctx context.Context, projectCode int64, memberId int64) (*pro.ProjectAndMember, error) {
 	var pms *pro.ProjectAndMember
 	session := p.conn.Session(ctx)
@@ -57,11 +68,11 @@ func (p ProjectDao) FindProjectByMemId(ctx context.Context, memId int64, conditi
 	var pms []*pro.ProjectAndMember
 	session := p.conn.Session(ctx)
 	index := (page - 1) * size
-	sql := fmt.Sprintf("select * from ms_project a, ms_project_member b where a.id = b.project_code and b.member_code=? and %s order by sort limit ?,?", condition)
+	sql := fmt.Sprintf("select * from ms_project a, ms_project_member b where a.id = b.project_code and b.member_code=? %s order by sort limit ?,?", condition)
 	raw := session.Raw(sql, memId, index, size)
 	raw.Scan(&pms)
 	var total int64
-	query := fmt.Sprintf("select count(*) from ms_project a, ms_project_member b where a.id = b.project_code and b.member_code=? and %s", condition)
+	query := fmt.Sprintf("select count(*) from ms_project a, ms_project_member b where a.id = b.project_code and b.member_code=? %s", condition)
 	tx := session.Raw(query, memId)
 	err := tx.Scan(&total).Error
 	return pms, total, err
