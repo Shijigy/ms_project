@@ -11,6 +11,8 @@ type ProjectRepo interface {
 	FindCollectProjectByMemId(ctx context.Context, memberId int64, page int64, size int64) ([]*pro.ProjectAndMember, int64, error)
 	SaveProject(conn database.DbConn, ctx context.Context, pr *pro.Project) error
 	SaveProjectMember(conn database.DbConn, ctx context.Context, pm *pro.ProjectMember) error
+	FindProjectByPIdAndMemId(ctx context.Context, projectCode int64, memberId int64) (*pro.ProjectAndMember, error)
+	FindCollectByPidAndMemId(ctx context.Context, code int64, id int64) (bool, error)
 }
 
 type ProjectTemplateRepo interface {

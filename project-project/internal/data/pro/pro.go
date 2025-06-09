@@ -38,6 +38,14 @@ func (*Project) TableName() string {
 	return "ms_project"
 }
 
+func ToProjectMap(list []*Project) map[int64]*Project {
+	m := make(map[int64]*Project, len(list))
+	for _, v := range list {
+		m[v.Id] = v
+	}
+	return m
+}
+
 type ProjectMember struct {
 	Id          int64
 	ProjectCode int64
@@ -55,9 +63,7 @@ type ProjectCollection struct {
 	Id          int64
 	ProjectCode int64
 	MemberCode  int64
-	JoinTime    int64
-	IsOwner     int64
-	Authorize   string
+	CreateTime  int64
 }
 
 func (*ProjectCollection) TableName() string {
@@ -71,9 +77,24 @@ type ProjectAndMember struct {
 	JoinTime    int64
 	IsOwner     int64
 	Authorize   string
+	OwnerName   string
+	Collected   int
 }
 
 func (m *ProjectAndMember) GetAccessControlType() string {
+	if m.AccessControlType == 0 {
+		return "open"
+	}
+	if m.AccessControlType == 1 {
+		return "private"
+	}
+	if m.AccessControlType == 2 {
+		return "custom"
+	}
+	return ""
+}
+
+func (m *Project) GetAccessControlType() string {
 	if m.AccessControlType == 0 {
 		return "open"
 	}
