@@ -75,6 +75,24 @@ func (p *ProjectService) FindProjectByMemId(ctx context.Context, msg *project.Pr
 	}
 	if msg.SelectBy == "collect" {
 		pms, total, err = p.projectRepo.FindCollectProjectByMemId(ctx, memberId, page, pageSize)
+		for _, v := range pms {
+			v.Collected = model.Collected
+		}
+	} else {
+		collectPms, _, err := p.projectRepo.FindCollectProjectByMemId(ctx, memberId, page, pageSize)
+		if err != nil {
+			zap.L().Error("project FindProjectByMemId::FindCollectProjectByMemId error", zap.Error(err))
+			return nil, errs.GrpcError(model.DBError)
+		}
+		var cMap = make(map[int64]*pro.ProjectAndMember)
+		for _, v := range collectPms {
+			cMap[v.Id] = v
+		}
+		for _, v := range pms {
+			if cMap[v.ProjectCode] != nil {
+				v.Collected = model.Collected
+			}
+		}
 	}
 	if err != nil {
 		zap.L().Error("project FindProjectByMemId error", zap.Error(err))
@@ -83,6 +101,7 @@ func (p *ProjectService) FindProjectByMemId(ctx context.Context, msg *project.Pr
 	if pms == nil {
 		return &project.MyProjectResponse{Pm: []*project.ProjectMessage{}, Total: total}, nil
 	}
+
 	var pmm []*project.ProjectMessage
 	copier.Copy(&pmm, pms)
 	for _, v := range pmm {
@@ -240,17 +259,4 @@ func (ps *ProjectService) FindProjectDetail(ctx context.Context, msg *project.Pr
 	detailMsg.Order = int32(projectAndMember.Sort)
 	detailMsg.CreateTime = tms.FormatByMill(projectAndMember.CreateTime)
 	return detailMsg, nil
-}
-
-func (ps *ProjectService) UpdateDeletedProject(ctx context.Context, msg *project.ProjectRpcMessage) (*project.DeletedProjectResponse, error) {
-	projectCodeStr, _ := encrypts.Decrypt(msg.ProjectCode, model.AESKey)
-	projectCode, _ := strconv.ParseInt(projectCodeStr, 10, 64)
-	c, cancel := context.WithTimeout(context.Background(), 2*time.Second)
-	defer cancel()
-	err := ps.projectRepo.UpdateDeletedProject(c, projectCode, msg.Deleted)
-	if err != nil {
-		zap.L().Error("project RecycleProject DeleteProject error", zap.Error(err))
-		return nil, errs.GrpcError(model.DBError)
-	}
-	return &project.DeletedProjectResponse{}, nil
 }

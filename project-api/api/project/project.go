@@ -17,7 +17,7 @@ import (
 
 type HandlerProject struct{}
 
-func (p HandlerProject) index(c *gin.Context) {
+func (p *HandlerProject) index(c *gin.Context) {
 	result := &common.Result{}
 	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 	defer cancel()
@@ -33,7 +33,7 @@ func (p HandlerProject) index(c *gin.Context) {
 	c.JSON(http.StatusOK, result.Success(ms))
 }
 
-func (p HandlerProject) myProjectList(c *gin.Context) {
+func (p *HandlerProject) myProjectList(c *gin.Context) {
 	result := &common.Result{}
 	//1. 获取参数
 	ctx, cancelFunc := context.WithTimeout(context.Background(), 2*time.Second)
@@ -66,7 +66,7 @@ func (p HandlerProject) myProjectList(c *gin.Context) {
 	}))
 }
 
-func (p HandlerProject) projectTemplate(c *gin.Context) {
+func (p *HandlerProject) projectTemplate(c *gin.Context) {
 	result := &common.Result{}
 	//1. 获取参数
 	ctx, cancelFunc := context.WithTimeout(context.Background(), 2*time.Second)
@@ -106,7 +106,7 @@ func (p HandlerProject) projectTemplate(c *gin.Context) {
 	}))
 }
 
-func (p HandlerProject) projectSave(c *gin.Context) {
+func (p *HandlerProject) projectSave(c *gin.Context) {
 	result := &common.Result{}
 	//1. 获取参数
 	ctx, cancelFunc := context.WithTimeout(context.Background(), 2*time.Second)
@@ -162,12 +162,27 @@ func (p *HandlerProject) recycleProject(c *gin.Context) {
 	c.JSON(http.StatusOK, result.Success([]int{}))
 }
 
-func (p HandlerProject) recoveryProject(c *gin.Context) {
+func (p *HandlerProject) recoveryProject(c *gin.Context) {
 	result := &common.Result{}
 	projectCode := c.PostForm("projectCode")
 	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 	defer cancel()
 	_, err := ProjectServiceClient.UpdateDeletedProject(ctx, &project.ProjectRpcMessage{ProjectCode: projectCode, Deleted: false})
+	if err != nil {
+		code, msg := errs.ParseGrpcError(err)
+		c.JSON(http.StatusOK, result.Fail(code, msg))
+	}
+	c.JSON(http.StatusOK, result.Success([]int{}))
+}
+
+func (p *HandlerProject) collectProject(c *gin.Context) {
+	result := &common.Result{}
+	projectCode := c.PostForm("projectCode")
+	collectType := c.PostForm("type")
+	memberId := c.GetInt64("memberId")
+	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	defer cancel()
+	_, err := ProjectServiceClient.UpdateCollectProject(ctx, &project.ProjectRpcMessage{ProjectCode: projectCode, CollectType: collectType, MemberId: memberId})
 	if err != nil {
 		code, msg := errs.ParseGrpcError(err)
 		c.JSON(http.StatusOK, result.Fail(code, msg))
