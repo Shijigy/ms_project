@@ -253,7 +253,7 @@ func (ps *ProjectService) FindProjectDetail(ctx context.Context, msg *project.Pr
 	copier.Copy(detailMsg, projectAndMember)
 	detailMsg.OwnerAvatar = member.Avatar
 	detailMsg.OwnerName = member.Name
-	detailMsg.Code, _ = encrypts.EncryptInt64(projectAndMember.Id, model.AESKey)
+	detailMsg.Code, _ = encrypts.EncryptInt64(projectAndMember.ProjectCode, model.AESKey)
 	detailMsg.AccessControlType = projectAndMember.GetAccessControlType()
 	detailMsg.OrganizationCode, _ = encrypts.EncryptInt64(projectAndMember.OrganizationCode, model.AESKey)
 	detailMsg.Order = int32(projectAndMember.Sort)
