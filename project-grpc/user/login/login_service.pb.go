@@ -934,7 +934,7 @@ const file_login_service_proto_rawDesc = "" +
 	"\x05memId\x18\x01 \x01(\x03R\x05memId\x12\x12\n" +
 	"\x04mIds\x18\x02 \x03(\x03R\x04mIds\"d\n" +
 	"\x0fOrgListResponse\x12Q\n" +
-	"\x10organizationList\x18\x01 \x03(\v2%.login.service.v1.OrganizationMessageR\x10organizationList2\xfc\x03\n" +
+	"\x10organizationList\x18\x01 \x03(\v2%.login.service.v1.OrganizationMessageR\x10organizationList2\xd6\x04\n" +
 	"\fLoginService\x12S\n" +
 	"\n" +
 	"GetCaptcha\x12 .login.service.v1.CaptchaMessage\x1a!.login.service.v1.CaptchaResponse\"\x00\x12S\n" +
@@ -942,7 +942,8 @@ const file_login_service_proto_rawDesc = "" +
 	"\x05Login\x12\x1e.login.service.v1.LoginMessage\x1a\x1f.login.service.v1.LoginResponse\"\x00\x12P\n" +
 	"\vTokenVerify\x12\x1e.login.service.v1.LoginMessage\x1a\x1f.login.service.v1.LoginResponse\"\x00\x12O\n" +
 	"\tMyOrgList\x12\x1d.login.service.v1.UserMessage\x1a!.login.service.v1.OrgListResponse\"\x00\x12S\n" +
-	"\x0fFindMemInfoById\x12\x1d.login.service.v1.UserMessage\x1a\x1f.login.service.v1.MemberMessage\"\x00B+Z)project-user/pkg/service/login.service.v1b\x06proto3"
+	"\x0fFindMemInfoById\x12\x1d.login.service.v1.UserMessage\x1a\x1f.login.service.v1.MemberMessage\"\x00\x12X\n" +
+	"\x10FindMemInfoByIds\x12\x1d.login.service.v1.UserMessage\x1a#.login.service.v1.MemberMessageList\"\x00B+Z)project-user/pkg/service/login.service.v1b\x06proto3"
 
 var (
 	file_login_service_proto_rawDescOnce sync.Once
@@ -983,14 +984,16 @@ var file_login_service_proto_depIdxs = []int32{
 	4,  // 8: login.service.v1.LoginService.TokenVerify:input_type -> login.service.v1.LoginMessage
 	10, // 9: login.service.v1.LoginService.MyOrgList:input_type -> login.service.v1.UserMessage
 	10, // 10: login.service.v1.LoginService.FindMemInfoById:input_type -> login.service.v1.UserMessage
-	1,  // 11: login.service.v1.LoginService.GetCaptcha:output_type -> login.service.v1.CaptchaResponse
-	3,  // 12: login.service.v1.LoginService.Register:output_type -> login.service.v1.RegisterResponse
-	5,  // 13: login.service.v1.LoginService.Login:output_type -> login.service.v1.LoginResponse
-	5,  // 14: login.service.v1.LoginService.TokenVerify:output_type -> login.service.v1.LoginResponse
-	11, // 15: login.service.v1.LoginService.MyOrgList:output_type -> login.service.v1.OrgListResponse
-	6,  // 16: login.service.v1.LoginService.FindMemInfoById:output_type -> login.service.v1.MemberMessage
-	11, // [11:17] is the sub-list for method output_type
-	5,  // [5:11] is the sub-list for method input_type
+	10, // 11: login.service.v1.LoginService.FindMemInfoByIds:input_type -> login.service.v1.UserMessage
+	1,  // 12: login.service.v1.LoginService.GetCaptcha:output_type -> login.service.v1.CaptchaResponse
+	3,  // 13: login.service.v1.LoginService.Register:output_type -> login.service.v1.RegisterResponse
+	5,  // 14: login.service.v1.LoginService.Login:output_type -> login.service.v1.LoginResponse
+	5,  // 15: login.service.v1.LoginService.TokenVerify:output_type -> login.service.v1.LoginResponse
+	11, // 16: login.service.v1.LoginService.MyOrgList:output_type -> login.service.v1.OrgListResponse
+	6,  // 17: login.service.v1.LoginService.FindMemInfoById:output_type -> login.service.v1.MemberMessage
+	7,  // 18: login.service.v1.LoginService.FindMemInfoByIds:output_type -> login.service.v1.MemberMessageList
+	12, // [12:19] is the sub-list for method output_type
+	5,  // [5:12] is the sub-list for method input_type
 	5,  // [5:5] is the sub-list for extension type_name
 	5,  // [5:5] is the sub-list for extension extendee
 	0,  // [0:5] is the sub-list for field type_name

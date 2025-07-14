@@ -62,8 +62,8 @@ INSERT INTO `ms_project_menu` VALUES (149, 148, '个人设置', '', 'account/set
 INSERT INTO `ms_project_menu` VALUES (150, 148, '安全设置', '', 'account/setting/security', 'account/setting/security', '', 'project/index/editpersonal', 0, 1, 0, 1, '', 1);
 INSERT INTO `ms_project_menu` VALUES (151, 122, '我的项目', '', 'project/list', 'project/list', ':type', 'project/project/index', 0, 1, 0, 0, 'my', 1);
 INSERT INTO `ms_project_menu` VALUES (152, 122, '回收站', '', 'project/recycle', 'project/recycle', '', 'project/project/index', 20, 1, 0, 0, '', 1);
-INSERT INTO `ms_project_menu` VALUES (153, 121, '项目空间', 'heat-map', 'project/space/task', 'project/space/task', ':code', '#', 20, 1, 0, 1, '', 1);
-INSERT INTO `ms_project_menu` VALUES (154, 153, '任务详情', '', 'project/space/task/:code/detail', 'project/space/taskdetail', ':code', 'project/task/read', 0, 1, 0, 1, '', 0);
+INSERT INTO `ms_project_menu` VALUES (153, 121, '项目空间', 'heat-map', 'project/space/tasks', 'project/space/tasks', ':code', '#', 20, 1, 0, 1, '', 1);
+INSERT INTO `ms_project_menu` VALUES (154, 153, '任务详情', '', 'project/space/tasks/:code/detail', 'project/space/taskdetail', ':code', 'project/tasks/read', 0, 1, 0, 1, '', 0);
 INSERT INTO `ms_project_menu` VALUES (155, 122, '我的收藏', '', 'project/list', 'project/list', ':type', 'project/project/index', 10, 1, 0, 0, 'collect', 1);
 INSERT INTO `ms_project_menu` VALUES (156, 121, '基础设置', 'experiment', '#', '#', '', '#', 0, 1, 0, 0, '', 1);
 INSERT INTO `ms_project_menu` VALUES (157, 156, '项目模板', '', 'project/template', 'project/template', '', 'project/project_template/index', 0, 1, 0, 0, '', 1);

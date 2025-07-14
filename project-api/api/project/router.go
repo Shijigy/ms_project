@@ -35,4 +35,17 @@ func (*RouterProject) Route(r *gin.Engine) {
 
 	t := NewTask()
 	group.POST("/task_stages", t.taskStages)
+	group.POST("/project_member/index", t.memberProjectList)
+	group.POST("/task_stages/tasks", t.taskList)
+	group.POST("/tasks/save", t.saveTask)
+	//group.POST("/tasks/sort", t.taskSort)
+	//group.POST("/tasks/selfList", t.myTaskList)
+	//group.POST("/tasks/read", t.readTask)
+	//group.POST("/task_member", t.listTaskMember)
+	//group.POST("/tasks/taskLog", t.taskLog)
+	//group.POST("/tasks/_taskWorkTimeList", t.taskWorkTimeList)
+	//group.POST("/tasks/saveTaskWorkTime", t.saveTaskWorkTime)
+	//group.POST("/file/uploadFiles", t.uploadFiles)
+	//group.POST("/tasks/taskSources", t.taskSources)
+	//group.POST("/tasks/createComment", t.createComment)
 }

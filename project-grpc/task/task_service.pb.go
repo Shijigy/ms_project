@@ -2922,7 +2922,7 @@ const file_task_service_proto_rawDesc = "" +
 	"\x10SaveTaskWorkTime\x12\x1f.task.service.v1.TaskReqMessage\x1a).task.service.v1.SaveTaskWorkTimeResponse\"\x00\x12X\n" +
 	"\fSaveTaskFile\x12#.task.service.v1.TaskFileReqMessage\x1a!.task.service.v1.TaskFileResponse\"\x00\x12U\n" +
 	"\vTaskSources\x12\x1f.task.service.v1.TaskReqMessage\x1a#.task.service.v1.TaskSourceResponse\"\x00\x12Z\n" +
-	"\rCreateComment\x12\x1f.task.service.v1.TaskReqMessage\x1a&.task.service.v1.CreateCommentResponse\"\x00B-Z+project-project/pkg/service/task.service.v1b\x06proto3"
+	"\rCreateComment\x12\x1f.task.service.v1.TaskReqMessage\x1a&.task.service.v1.CreateCommentResponse\"\x00B.Z,project-project/pkg/service/tasks.service.v1b\x06proto3"
 
 var (
 	file_task_service_proto_rawDescOnce sync.Once

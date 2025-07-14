@@ -8,6 +8,8 @@
     <file url="file://$PROJECT_DIR$/sql/ms_project_member.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/ms_project_menu.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/ms_project_template.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/sql/ms_task.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/sql/ms_task_member.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/ms_task_stages.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/ms_task_stages_template.sql" dialect="MySQL" />
   </component>
