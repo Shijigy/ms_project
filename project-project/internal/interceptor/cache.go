@@ -23,6 +23,7 @@ type CacheRespOption struct {
 	expire time.Duration
 }
 
+// CacheInterceptor 除了缓存拦截器 实现日志拦截器 打印参数内容值 请求的时间 等等
 func New() *CacheInterceptor {
 	cacheMap := make(map[string]any)
 	cacheMap["/project.service.v1.ProjectService/FindProjectByMemId"] = &project.MyProjectResponse{}

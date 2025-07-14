@@ -55,7 +55,7 @@ func (p *ProjectTemplateDao) FindProjectTemplateAll(ctx context.Context, organiz
 	return pts, total, err
 }
 
-func NewProjectTempleDao() *ProjectTemplateDao {
+func NewProjectTemplateDao() *ProjectTemplateDao {
 	return &ProjectTemplateDao{
 		conn: gorms.New(),
 	}

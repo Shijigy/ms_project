@@ -109,8 +109,8 @@ func (p *HandlerProject) projectTemplate(c *gin.Context) {
 func (p *HandlerProject) projectSave(c *gin.Context) {
 	result := &common.Result{}
 	//1. 获取参数
-	ctx, cancelFunc := context.WithTimeout(context.Background(), 2*time.Second)
-	defer cancelFunc()
+	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	defer cancel()
 	memberId := c.GetInt64("memberId")
 	organizationCode := c.GetString("organizationCode")
 	var req *pro.SaveProjectRequest
