@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/sql/ms_file.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/ms_member.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/ms_organization.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/ms_project.sql" dialect="MySQL" />
@@ -9,6 +10,7 @@
     <file url="file://$PROJECT_DIR$/sql/ms_project_member.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/ms_project_menu.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/ms_project_template.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/sql/ms_source_link.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/ms_task.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/ms_task_member.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/ms_task_stages.sql" dialect="MySQL" />
