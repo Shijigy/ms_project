@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/sql/ms_organization.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/ms_project.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/ms_project_collection.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/sql/ms_project_log.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/ms_project_member.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/ms_project_menu.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/ms_project_template.sql" dialect="MySQL" />
