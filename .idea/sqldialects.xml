@@ -13,5 +13,6 @@
     <file url="file://$PROJECT_DIR$/sql/ms_task_member.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/ms_task_stages.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/ms_task_stages_template.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/sql/ms_task_work_time.sql" dialect="MySQL" />
   </component>
 </project>

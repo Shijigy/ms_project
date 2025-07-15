@@ -43,7 +43,7 @@ func (*RouterProject) Route(r *gin.Engine) {
 	group.POST("/task/read", t.readTask)
 	group.POST("/task_member", t.listTaskMember)
 	group.POST("/task/taskLog", t.taskLog)
-	//group.POST("/task/_taskWorkTimeList", t.taskWorkTimeList)
+	group.POST("/task/_taskWorkTimeList", t.taskWorkTimeList)
 	//group.POST("/task/saveTaskWorkTime", t.saveTaskWorkTime)
 	//group.POST("/file/uploadFiles", t.uploadFiles)
 	//group.POST("/task/taskSources", t.taskSources)
