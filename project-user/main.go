@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"test.com/project-api/api/midd"
 	srv "test.com/project-common"
 	"test.com/project-user/config"
 	"test.com/project-user/router"
@@ -9,6 +10,7 @@ import (
 
 func main() {
 	r := gin.Default()
+	r.Use(midd.RequestLog())
 	// 路由
 	router.InitRouter(r)
 	// grpc服务注册

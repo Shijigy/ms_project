@@ -217,6 +217,8 @@ func (t *Task) ToTaskDisplay() *TaskDisplay {
 	td.ExecuteStatus = t.GetExecuteStatusStr()
 	td.Code = encrypts.EncryptNoErr(t.Id)
 	td.CanRead = 1
+	td.StatusText = t.GetStatusStr()
+	td.PriText = t.GetPriStr()
 	return td
 }
 
