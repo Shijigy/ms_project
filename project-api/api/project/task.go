@@ -5,11 +5,13 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/copier"
 	"net/http"
+	"os"
 	"test.com/project-api/pkg/model"
 	"test.com/project-api/pkg/model/pro"
 	"test.com/project-api/pkg/model/tasks"
 	common "test.com/project-common"
 	"test.com/project-common/errs"
+	"test.com/project-common/fs"
 	"test.com/project-common/tms"
 	"test.com/project-grpc/task"
 	"time"
@@ -342,6 +344,41 @@ func (t *HandlerTask) saveTaskWorkTime(c *gin.Context) {
 		c.JSON(http.StatusOK, result.Fail(code, msg))
 	}
 	c.JSON(http.StatusOK, result.Success([]int{}))
+}
+
+func (t *HandlerTask) uploadFiles(c *gin.Context) {
+	result := &common.Result{}
+	req := model.UploadFileReq{}
+	c.ShouldBind(req)
+	//处理文件
+	multipartForm, _ := c.MultipartForm()
+	file := multipartForm.File
+	//假设只上传一个文件
+	uploadFile := file["file"][0]
+	//第一种 没有达成分片的条件
+	key := ""
+	if req.TotalChunks == 1 {
+		//不分片
+		path := "upload/" + req.ProjectCode + "/" + req.TaskCode + "/" + tms.FormatYMD(time.Now())
+		if !fs.IsExist(path) {
+			os.MkdirAll(path, os.ModePerm)
+		}
+		dst := path + "/" + req.Filename
+		key = dst
+		err := c.SaveUploadedFile(uploadFile, dst)
+		if err != nil {
+			c.JSON(http.StatusOK, result.Fail(-999, err.Error()))
+			return
+		}
+	}
+	c.JSON(http.StatusOK, result.Success(gin.H{
+		"file":        key,
+		"hash":        "",
+		"key":         key,
+		"url":         "http://localhost/" + key,
+		"projectName": req.ProjectName,
+	}))
+	return
 }
 
 func NewTask() *HandlerTask {
