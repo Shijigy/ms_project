@@ -30,6 +30,8 @@ type TaskService struct {
 	taskRepo               repo.TaskRepo
 	projectLogRepo         repo.ProjectLogRepo
 	taskWorkTimeRepo       repo.TaskWorkTimeRepo
+	fileRepo               repo.FileRepo
+	sourceLinkRepo         repo.SourceLinkRepo
 }
 
 func New() *TaskService {
@@ -43,6 +45,8 @@ func New() *TaskService {
 		taskRepo:               dao.NewTaskDao(),
 		projectLogRepo:         dao.NewProjectLogDao(),
 		taskWorkTimeRepo:       dao.NewTaskWorkTimeDao(),
+		fileRepo:               dao.NewFileDao(),
+		sourceLinkRepo:         dao.NewSourceLinkDao(),
 	}
 }
 

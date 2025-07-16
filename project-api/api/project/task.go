@@ -6,6 +6,7 @@ import (
 	"github.com/jinzhu/copier"
 	"net/http"
 	"os"
+	"path"
 	"test.com/project-api/pkg/model"
 	"test.com/project-api/pkg/model/pro"
 	"test.com/project-api/pkg/model/tasks"
@@ -371,6 +372,60 @@ func (t *HandlerTask) uploadFiles(c *gin.Context) {
 			return
 		}
 	}
+	if req.TotalChunks > 1 {
+		//分片上传 无非就是先把每次的存储起来 追加就可以了
+		path := "upload/" + req.ProjectCode + "/" + req.TaskCode + "/" + tms.FormatYMD(time.Now())
+		if !fs.IsExist(path) {
+			os.MkdirAll(path, os.ModePerm)
+		}
+		fileName := path + "/" + req.Identifier
+		openFile, err := os.OpenFile(fileName, os.O_CREATE|os.O_APPEND|os.O_RDWR, os.ModePerm)
+		if err != nil {
+			c.JSON(http.StatusOK, result.Fail(-999, err.Error()))
+			return
+		}
+		open, err := uploadFile.Open()
+		if err != nil {
+			c.JSON(http.StatusOK, result.Fail(-999, err.Error()))
+			return
+		}
+		defer open.Close()
+		buf := make([]byte, req.CurrentChunkSize)
+		open.Read(buf)
+		openFile.Write(buf)
+		openFile.Close()
+		key = fileName
+		if req.TotalChunks == req.ChunkNumber {
+			//最后一个分片了
+			newPath := path + "/" + req.Filename
+			key = newPath
+			os.Rename(fileName, newPath)
+		}
+	}
+	//调用服务 存入file表
+	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	defer cancel()
+	fileUrl := "http://localhost/" + key
+	msg := &task.TaskFileReqMessage{
+		TaskCode:         req.TaskCode,
+		ProjectCode:      req.ProjectCode,
+		OrganizationCode: c.GetString("organizationCode"),
+		PathName:         key,
+		FileName:         req.Filename,
+		Size:             int64(req.TotalSize),
+		Extension:        path.Ext(key),
+		FileUrl:          fileUrl,
+		FileType:         file["file"][0].Header.Get("Content-Type"),
+		MemberId:         c.GetInt64("memberId"),
+	}
+	if req.TotalChunks == req.ChunkNumber {
+		_, err := TaskServiceClient.SaveTaskFile(ctx, msg)
+		if err != nil {
+			code, msg := errs.ParseGrpcError(err)
+			c.JSON(http.StatusOK, result.Fail(code, msg))
+		}
+	}
+
 	c.JSON(http.StatusOK, result.Success(gin.H{
 		"file":        key,
 		"hash":        "",
