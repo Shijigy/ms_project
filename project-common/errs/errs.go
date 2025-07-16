@@ -1,6 +1,9 @@
 package errs
 
-import "fmt"
+import (
+	"fmt"
+	"google.golang.org/grpc/status"
+)
 
 type ErrorCode int
 
@@ -18,4 +21,9 @@ func NewError(code ErrorCode, msg string) *BError {
 		Code: code,
 		Msg:  msg,
 	}
+}
+
+func ToBError(err error) *BError {
+	fromError, _ := status.FromError(err)
+	return NewError(ErrorCode(fromError.Code()), fromError.Message())
 }
