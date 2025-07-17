@@ -16,6 +16,7 @@ import (
 	"test.com/project-project/internal/data"
 	"test.com/project-project/internal/database"
 	"test.com/project-project/internal/database/tran"
+	"test.com/project-project/internal/domain"
 	"test.com/project-project/internal/repo"
 	"test.com/project-project/internal/rpc"
 	"test.com/project-project/pkg/model"
@@ -33,6 +34,7 @@ type ProjectService struct {
 	taskStagesRepo         repo.TaskStagesRepo
 	projectLogRepo         repo.ProjectLogRepo
 	taskRepo               repo.TaskRepo
+	nodeDomain             *domain.ProjectNodeDomain
 }
 
 func New() *ProjectService {
@@ -46,6 +48,7 @@ func New() *ProjectService {
 		taskStagesRepo:         dao.NewTaskStagesDao(),
 		projectLogRepo:         dao.NewProjectLogDao(),
 		taskRepo:               dao.NewTaskDao(),
+		nodeDomain:             domain.NewProjectNodeDomain(),
 	}
 }
 

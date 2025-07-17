@@ -12,8 +12,9 @@ import (
 )
 
 type ProjectAuthDomain struct {
-	projectAuthRepo repo.ProjectAuthRepo
-	userRpcDomain   *UserRpcDomain
+	projectAuthRepo   repo.ProjectAuthRepo
+	userRpcDomain     *UserRpcDomain
+	ProjectNodeDomain *ProjectNodeDomain
 }
 
 func (d *ProjectAuthDomain) AuthList(orgCode int64) ([]*data.ProjectAuthDisplay, *errs.BError) {
@@ -51,7 +52,8 @@ func (d *ProjectAuthDomain) AuthListPage(orgCode int64, page int64, pageSize int
 
 func NewProjectAuthDomain() *ProjectAuthDomain {
 	return &ProjectAuthDomain{
-		projectAuthRepo: dao.NewProjectAuthDao(),
-		userRpcDomain:   NewUserRpcDomain(),
+		projectAuthRepo:   dao.NewProjectAuthDao(),
+		userRpcDomain:     NewUserRpcDomain(),
+		ProjectNodeDomain: NewProjectNodeDomain(),
 	}
 }
