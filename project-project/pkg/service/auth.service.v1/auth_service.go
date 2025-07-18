@@ -50,7 +50,7 @@ func (a *AuthService) Apply(ctx context.Context, msg *auth.AuthReqMessage) (*aut
 		return &auth.ApplyResponse{List: prList, CheckedList: checkedList}, nil
 	}
 	if msg.Action == "save" {
-		//先删除 project_auth_node表 在新增  事务
+		//先删除 project_auth_node表 再新增  事务
 		//保存
 		nodes := msg.Nodes
 		//先删在存 加事务
@@ -64,4 +64,12 @@ func (a *AuthService) Apply(ctx context.Context, msg *auth.AuthReqMessage) (*aut
 		}
 	}
 	return &auth.ApplyResponse{}, nil
+}
+
+func (a *AuthService) AuthNodesByMemberId(ctx context.Context, msg *auth.AuthReqMessage) (*auth.AuthNodesResponse, error) {
+	list, err := a.projectAuthDomain.AuthNodes(msg.MemberId)
+	if err != nil {
+		return nil, errs.GrpcError(err)
+	}
+	return &auth.AuthNodesResponse{List: list}, nil
 }
