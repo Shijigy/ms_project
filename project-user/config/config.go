@@ -41,6 +41,13 @@ type MysqlConfig struct {
 	Host     string
 	Port     int
 	Db       string
+	Name     string
+}
+
+type DbConfig struct {
+	Master     MysqlConfig
+	Slave      []MysqlConfig
+	Separation bool
 }
 
 type JwtConfig struct {

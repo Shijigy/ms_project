@@ -17,6 +17,7 @@ type Config struct {
 	EtcdConfig  *EtcdConfig
 	MysqlConfig *MysqlConfig
 	JwtConfig   *JwtConfig
+	DbConfig    DbConfig
 }
 
 type ServerConfig struct {
@@ -41,6 +42,11 @@ type MysqlConfig struct {
 	Host     string
 	Port     int
 	Db       string
+}
+type DbConfig struct {
+	Master     MysqlConfig
+	Slave      []MysqlConfig
+	Separation bool
 }
 
 type JwtConfig struct {
